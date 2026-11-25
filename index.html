@@ -35,7 +35,10 @@
 
   <!-- ============ 地圖 ============ -->
   <section id="map-section">
-    <h2>🗺️ 地圖</h2>
+    <div class="map-head">
+      <h2>🗺️ 地圖</h2>
+      <button id="loc-btn" class="loc-btn">📍 我在哪裡</button>
+    </div>
     <div id="map"></div>
     <div class="legend">
       <span><i class="dot anchor"></i>定案</span>
@@ -48,11 +51,11 @@
 
   <footer>
     <p>Boyo &amp; Walter · Hannover · 資料來源：walter-visit-2026-11-28 公開日曆</p>
-    <p class="version">v1.0.2</p>
+    <p class="version">v1.0.3</p>
   </footer>
 </main>
 
-<script src="app.js?v=1.0.2"></script>
+<script src="app.js?v=1.0.3"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWPvsA_SU08rkUhOIVdafZwzAwHbM9aE&loading=async&callback=initMap&language=zh-TW&region=DE">
 </script>
