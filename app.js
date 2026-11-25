@@ -103,13 +103,13 @@ function showMyLocation() {
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           fillColor: '#e53935', fillOpacity: 1,
-          strokeColor: '#ffffff', strokeWeight: 2.5, scale: 9,
+          strokeColor: '#ffffff', strokeWeight: 3, scale: 12,
         },
         zIndex: 999,
       });
       USER_ACCURACY = new google.maps.Circle({
         map: MAP, center: me, radius: pos.coords.accuracy,
-        fillColor: '#e53935', fillOpacity: .08, strokeOpacity: 0,
+        fillColor: '#e53935', fillOpacity: .15, strokeColor: '#e53935', strokeOpacity: .25, strokeWeight: 1,
       });
     } else {
       USER_MARKER.setPosition(me);
