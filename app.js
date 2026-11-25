@@ -35,7 +35,8 @@ function evDate(e) { return _d(e.start); }
 function evEnd(e)  { return _d(e.end); }
 
 const PX_PER_HOUR = 64;          // true-scale: 1 hour = 64px
-const DAY_START_H = 7, DAY_END_H = 24;
+const DAY_END_H = 24;
+let DAY_START_H = 7;             // dynamic: extends up if events start earlier (e.g. 01:00 sleep-in)
 
 function renderTimeline(events, updated) {
   const el = document.getElementById('timeline');
@@ -50,6 +51,13 @@ function renderTimeline(events, updated) {
   const list = (byDay[active] || []).sort((a,b) => evDate(a) - evDate(b));
   const now = new Date();
   const hm = x => `${String(x.getHours()).padStart(2,'0')}:${String(x.getMinutes()).padStart(2,'0')}`;
+
+  // dynamic grid start: earliest event hour (not before 00:00), default 07:00
+  DAY_START_H = 7;
+  for (const e of list) {
+    const d = evDate(e);
+    if (!isNaN(d) && d.getHours() < DAY_START_H) DAY_START_H = d.getHours();
+  }
 
   // ---- hour grid (true scale) ----
   let grid = '';
