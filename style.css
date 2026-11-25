@@ -71,9 +71,10 @@ main { max-width: 680px; margin: 0 auto; padding: 0 12px 40px; }
   border-left: 3px solid var(--anchor); border-radius: 8px;
   padding: 6px 10px; overflow: hidden; cursor: pointer;
 }
-.ev .t { font-weight: 600; font-size: .9rem; line-height: 1.3; }
+.ev .t { font-weight: 600; font-size: .9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ev .time { flex-shrink: 0; }
 .ev .time { color: var(--accent); font-variant-numeric: tabular-nums; font-size: .74rem; margin-top: 2px; }
-.ev .d { color: var(--muted); font-size: .76rem; margin-top: 3px; line-height: 1.45; white-space: pre-line; }
+.ev .d { color: var(--muted); font-size: .76rem; margin-top: 3px; line-height: 1.45; white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .ev.past { opacity: .4; }
 .ev.now { border-left-color: #e53935; background: #2a1b20; }
 .now-line {

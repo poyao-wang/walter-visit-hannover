@@ -67,12 +67,15 @@ function renderTimeline(events, updated) {
     const past = t < now, nowNow = s <= now && now <= t;
     const top = ((s.getHours() + s.getMinutes()/60) - DAY_START_H) * PX_PER_HOUR;
     const endH = isNaN(t) ? s.getHours() + 1 : t.getHours() + t.getMinutes()/60;
-    const height = Math.max(28, (Math.min(endH, DAY_END_H) - Math.max(s.getHours() + s.getMinutes()/60, DAY_START_H)) * PX_PER_HOUR - 4);
+    const mins = (Math.min(endH, DAY_END_H) - Math.max(s.getHours() + s.getMinutes()/60, DAY_START_H)) * 60;
+    const height = Math.max(34, mins * PX_PER_HOUR / 60 - 4);
+    // short events (<45min): title+time only; description would clip
+    const showDesc = mins >= 45 && e.description;
     evHtml += `<div class="ev${past ? ' past' : ''}${nowNow ? ' now' : ''}"
       style="top:${top}px;height:${height}px">
       <div class="t">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
       ${!allDay && !isNaN(t) ? `<div class="time">${hm(s)}–${hm(t)}</div>` : ''}
-      ${e.description ? `<div class="d">${esc(e.description)}</div>` : ''}</div>`;
+      ${showDesc ? `<div class="d">${esc(e.description)}</div>` : ''}</div>`;
   }
 
   // ---- red now-line if today ----
