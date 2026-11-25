@@ -154,3 +154,13 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
   width: 18px; height: 18px; accent-color: var(--anchor);
   flex-shrink: 0; cursor: pointer;
 }
+
+/* place list header actions */
+.list-head-row { display: flex; justify-content: space-between; align-items: center; padding: 2px 0 8px; }
+.list-head-row h3 { margin: 0; }
+.list-actions { display: flex; gap: 8px; }
+.list-btn {
+  padding: 7px 12px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--card2); color: var(--text); font-size: .8rem; font-weight: 600;
+}
+.list-btn:active { background: var(--accent); color: #06232f; }

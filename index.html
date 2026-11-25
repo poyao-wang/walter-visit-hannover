@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Walter 來訪 · 漢諾威週末 2026</title>
-<link rel="stylesheet" href="style.css?v=1.2.1">
+<link rel="stylesheet" href="style.css?v=1.2.4">
 <link rel="icon" href="icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -45,7 +45,13 @@
       <span><i class="dot option"></i>備選</span>
       <span><i class="dot info"></i>航班</span>
     </div>
-    <h3>地點列表</h3>
+    <div class="list-head-row">
+      <h3>地點列表</h3>
+      <div class="list-actions">
+        <button id="show-all" class="list-btn">全部顯示</button>
+        <button id="hide-all" class="list-btn">全部隱藏</button>
+      </div>
+    </div>
     <ul id="place-list"></ul>
   </section>
 

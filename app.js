@@ -307,3 +307,16 @@ window.initMap = initMap;
 
 const LOC_BTN = document.getElementById('loc-btn');
 if (LOC_BTN) LOC_BTN.addEventListener('click', showMyLocation);
+
+/* show-all / hide-all */
+function setAllPlaces(visible) {
+  document.querySelectorAll('.place-check').forEach(cb => {
+    cb.checked = visible;
+    setPlaceVisible(cb.dataset.id, visible);
+  });
+  document.querySelectorAll('.group-check').forEach(gb => { gb.checked = visible; });
+}
+const SHOW_BTN = document.getElementById('show-all');
+const HIDE_BTN = document.getElementById('hide-all');
+if (SHOW_BTN) SHOW_BTN.addEventListener('click', () => setAllPlaces(true));
+if (HIDE_BTN) HIDE_BTN.addEventListener('click', () => setAllPlaces(false));
