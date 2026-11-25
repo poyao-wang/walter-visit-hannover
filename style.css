@@ -1,0 +1,101 @@
+:root {
+  --bg: #101418;
+  --card: #1a2028;
+  --card2: #212a34;
+  --text: #e8edf2;
+  --muted: #8a97a5;
+  --accent: #4fc3f7;
+  --anchor: #4fc3f7;
+  --option: #ffb74d;
+  --info: #81c784;
+  --border: #2c3642;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: rgba(16,20,24,.96); backdrop-filter: blur(8px);
+  z-index: 50;
+}
+.topbar h1 { font-size: 1.25rem; }
+.topbar .sub { color: var(--muted); font-size: .85rem; margin-top: 2px; }
+.flight-badge { text-align: right; font-size: .72rem; line-height: 1.5; }
+.flight-badge .in  { display:block; color: var(--info); }
+.flight-badge .out { display:block; color: var(--option); }
+
+main { max-width: 680px; margin: 0 auto; padding: 0 12px 40px; }
+
+/* ---------- day tabs ---------- */
+.day-tabs {
+  display: flex; gap: 8px; padding: 14px 0 10px;
+  position: sticky; top: 64px; background: var(--bg); z-index: 40;
+}
+.day-tab {
+  flex: 1; padding: 10px 4px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--muted); font-size: .95rem; font-weight: 600;
+}
+.day-tab.active { background: var(--accent); color: #06232f; border-color: var(--accent); }
+
+/* ---------- timeline ---------- */
+.timeline { padding: 4px 0 8px; }
+.ev {
+  display: grid; grid-template-columns: 58px 1fr; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.ev:last-child { border-bottom: none; }
+.ev .time { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 700; font-size: .9rem; padding-top: 2px; }
+.ev .time .dur { display: block; color: var(--muted); font-weight: 400; font-size: .72rem; }
+.ev .body .t { font-weight: 600; font-size: .98rem; line-height: 1.35; }
+.ev .body .d { color: var(--muted); font-size: .82rem; margin-top: 4px; line-height: 1.5; white-space: pre-line; }
+.ev.past { opacity: .45; }
+.ev.now { border-left: 3px solid var(--accent); padding-left: 8px; }
+.src-note { color: var(--muted); font-size: .72rem; padding: 8px 2px; }
+
+/* ---------- map ---------- */
+#map-section h2 { font-size: 1.1rem; padding: 18px 2px 10px; }
+#map {
+  width: 100%; height: 380px; border-radius: 14px;
+  border: 1px solid var(--border); background: var(--card);
+}
+.legend { display: flex; gap: 16px; padding: 10px 4px; font-size: .8rem; color: var(--muted); }
+.legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+.dot.anchor { background: var(--anchor); }
+.dot.option { background: var(--option); }
+.dot.info   { background: var(--info); }
+
+/* ---------- place list ---------- */
+#place-list { list-style: none; margin-top: 6px; }
+#place-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 4px; border-bottom: 1px solid var(--border); cursor: pointer;
+}
+#place-list .name { font-weight: 600; font-size: .95rem; }
+#place-list .cat  { color: var(--muted); font-size: .78rem; margin-top: 2px; }
+#place-list .go   { color: var(--accent); font-size: .9rem; white-space: nowrap; }
+
+/* ---------- footer ---------- */
+footer { margin-top: 28px; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+footer .version { color: var(--accent); }
+
+/* ---------- infowindow ---------- */
+.gm-style .iw { font-family: inherit; color: #111; line-height: 1.5; max-width: 240px; }
+.gm-style .iw .iw-name { font-weight: 700; margin-bottom: 4px; }
+.gm-style .iw .iw-desc { font-size: .82rem; color: #333; }
+.gm-style .iw a { color: #0b57d0; }
+
+@media (min-width: 640px) {
+  #map { height: 460px; }
+}

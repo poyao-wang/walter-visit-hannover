@@ -1,0 +1,22 @@
+{
+  "places": [
+    {"id": "fizz", "name": "The FIZZ Hannover（Boyo 宿舍）", "lat": 52.38010, "lng": 9.73360, "category": "lodging", "address": "Am Kläperberg 11, 30167 Hannover", "desc": "Boyo 的宿舍。Walter 週六中午行李先放這裡，週日晚上酒會前回來準備。", "status": "anchor"},
+    {"id": "bendorma", "name": "BenDorma（Walter 旅館）", "lat": 52.37690, "lng": 9.74380, "category": "lodging", "address": "Kniestraße 27, 30167 Hannover", "desc": "Walter 的旅館，離 FIZZ 走路約 15 分。Check-in 15:00 起、check-out 11:00。", "status": "anchor"},
+    {"id": "haj", "name": "Hannover Airport（HAJ）", "lat": 52.46120, "lng": 9.68580, "category": "transport", "address": "Flughafenstraße 1-4, 30669 Hannover", "desc": "KLM 抵達（11/28 10:20）與出發（11/30 18:15）。機場站在航廈正下方，S5 每 30 分一班、車程 18 分。", "status": "anchor"},
+    {"id": "mensa-contine", "name": "Mensa Contine", "lat": 52.37960, "lng": 9.72980, "category": "food", "address": "Callinstraße 23 / Conti-Campus, 30167 Hannover", "desc": "全 Studentenwerk 唯一週六營業的 Mensa（12:00–14:00，出菜 13:30 截止）。德國大學飲食文化初體驗。", "status": "anchor"},
+    {"id": "conti-campus", "name": "Conti-Campus / LUH 校園", "lat": 52.38040, "lng": 9.72900, "category": "sight", "address": "Königsworther Platz 1, 30167 Hannover", "desc": "LUH 校園巡禮起點（備選行程）。", "status": "option"},
+    {"id": "hauptgebaeude", "name": "Welfenschloss（LUH 主樓）", "lat": 52.38255, "lng": 9.71785, "category": "sight", "address": "Appelstraße / Welfengarten 1, 30167 Hannover", "desc": "漢諾威萊布尼茲大學主樓，前身王宮城堡。Welfengarten 花園免費散步。", "status": "option"},
+    {"id": "altstadt-weihnachtsmarkt", "name": "老城聖誕市集（Marktkirche）", "lat": 52.37430, "lng": 9.73030, "category": "market", "address": "Marktplatz, 30159 Hannover", "desc": "漢諾威聖誕市集主場：Marktkirche 旁的歷史市集。Bratwurst、Glühwein、聖誕杯收集起點。", "status": "anchor"},
+    {"id": "kroepcke", "name": "Kröpcke 聖誕金字塔", "lat": 52.37500, "lng": 9.73520, "category": "market", "address": "Kröpcke, 30159 Hannover", "desc": "市中心地標＋巨型聖誕金字塔，市集動線中繼站。", "status": "anchor"},
+    {"id": "hbf-weihnachtsdorf", "name": "Hbf Weihnachtsdorf（車站聖誕村）", "lat": 52.37670, "lng": 9.73900, "category": "market", "address": "Ernst-August-Platz 1, 30159 Hannover", "desc": "漢諾威車站前木屋市集（11:00–21:00）。市集動線終點，接超市採買。", "status": "anchor"},
+    {"id": "lidl-hbf", "name": "Lidl（Hbf 內）", "lat": 52.37700, "lng": 9.74120, "category": "shopping", "address": "Niki-de-Saint-Phalle-Promenade 86, 30161 Hannover", "desc": "車站內超市：週六開到 22:00+，週日 09:00–22:00（車站區例外營業）——週日補酒／下酒菜的最後機會。", "status": "anchor"},
+    {"id": "neues-rathaus", "name": "新市政廳（圓頂觀景）", "lat": 52.36360, "lng": 9.72830, "category": "sight", "address": "Trammplatz 2, 30159 Hannover", "desc": "斜面電梯上圓頂看全城，日落前（~16:00）上最值。備選行程。", "status": "option"},
+    {"id": "roter-faden", "name": "Roter Faden 紅線徒步起點", "lat": 52.37480, "lng": 9.73220, "category": "sight", "address": "Ernst-August-Platz（旅遊局前）, 30159 Hannover", "desc": "4.2 km 地上紅線串 36 個老城景點。跟著走就對。備選行程。", "status": "option"},
+    {"id": "herrenhausen", "name": "Herrenhausen 大花園", "lat": 52.39060, "lng": 9.69960, "category": "sight", "address": "Herrenhäuser Straße 4, 30419 Hannover", "desc": "巴洛克式大花園（冬天免費區域夠看）。備選行程，U-Bahn 4/5 到 Herrenhäuser Gärten 站。", "status": "option"},
+    {"id": "zoolights", "name": "ZooLights（Erlebnis-Zoo）", "lat": 52.39190, "lng": 9.77640, "category": "sight", "address": "Adenauerallee 3, 30175 Hannover", "desc": "夜間燈光秀（17.11–2.2，17:00–22:00），聖誕花園改到動物園辦。下雨／想看燈光的機動加碼。", "status": "option"},
+    {"id": "sea-life", "name": "SEA LIFE 水族館", "lat": 52.39260, "lng": 9.77230, "category": "sight", "address": "Adenauerallee 3, 30175 Hannover", "desc": "Zoo 旁的室內水族館——雨天備案。", "status": "option"},
+    {"id": "bing-venue", "name": "Bing 酒會（地點待定）", "lat": 52.38010, "lng": 9.73360, "category": "food", "address": "Boyo 宿舍或附近（未定）", "desc": "週日 20:00–23:00，Bing＋Walter 小酒會。地點未定，座標暫放 FIZZ。", "status": "anchor"},
+    {"id": "gla", "name": "Glasgow Airport（GLA，Walter 出發地）", "lat": 55.87190, "lng": -4.43310, "category": "transport", "address": "Paisley PA3 2SJ, Scotland, UK", "desc": "Walter 的出發機場（KLM GLA→AMS）。", "status": "info"},
+    {"id": "ams", "name": "Amsterdam Schiphol（AMS，轉機）", "lat": 52.31050, "lng": 4.76830, "category": "transport", "address": "Evert v/d Beekstraat 202, 1118 CP Schiphol", "desc": "來回都在這轉機。", "status": "info"}
+  ]
+}

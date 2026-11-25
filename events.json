@@ -1,0 +1,117 @@
+{
+ "updated": "2026-11-25T21:45:00+01:00",
+ "events": [
+  {
+   "id": "kt59p9sso7ql790grrlc9i9js4",
+   "summary": "Boyo 去機場接 Walter（FIZZ → HAJ，U4/5＋S5）",
+   "start": "2026-11-28T09:15:00+01:00",
+   "end": "2026-11-28T10:10:00+01:00",
+   "location": "",
+   "description": "FIZZ → U-Bahn 4/5 → Hbf → S5（每 30 分一班，車程 18 分）→ 機場站就在航廈下。\n09:15 出門 → ~09:30 S5 → ~09:50 到機場，Walter 10:20 落地。\n回程兩人一起 U-Bahn 進城，~11:45 到 FIZZ 放行李，12:15 出發 Mensa Contine。"
+  },
+  {
+   "id": "ri5bj33h649t0dja5ct52kvpq0",
+   "summary": "Walter 抵達 HAJ（KLM GLA→AMS→HAJ 10:20 落地）",
+   "start": "2026-11-28T10:20:00+01:00",
+   "end": "2026-11-28T11:20:00+01:00",
+   "location": "",
+   "description": "住宿：BenDorma（27 Kniestraße, Nordstadt 30167）11/28-30，check-in 15:00 起（預約已核准 15:00-16:00 抵達）。\\n只帶一個大包包 → 行李先放 Boyo 家（FIZZ），晚上回 Nordstadt 時順路 check-in。\\nU-Bahn 機場→FIZZ 約 30-40 分。"
+  },
+  {
+   "id": "4flhnhfg823db0eq107m6q18os",
+   "summary": "移動：HAJ → FIZZ（U-Bahn，放行李）",
+   "start": "2026-11-28T11:20:00+01:00",
+   "end": "2026-11-28T12:00:00+01:00",
+   "location": "",
+   "description": "兩人一起：機場站 S5 → Hbf → U4/5 → FIZZ（約 40 分含等車）。12:00 到 FIZZ 放行李。"
+  },
+  {
+   "id": "mpq9g4oskql8krps00l60068ds",
+   "summary": "移動：FIZZ → Conti-Campus",
+   "start": "2026-11-28T12:00:00+01:00",
+   "end": "2026-11-28T12:30:00+01:00",
+   "location": "",
+   "description": "放完行李出發。步行約 20 分（或 U-Bahn 兩站）。"
+  },
+  {
+   "id": "8qfr506rmei57i9behvegj9be0",
+   "summary": "Mensa Contine 午餐（出菜只到 13:30！）",
+   "start": "2026-11-28T12:30:00+01:00",
+   "end": "2026-11-28T13:45:00+01:00",
+   "location": "",
+   "description": "Mensa Contine：全 Studentenwerk 唯一週六營業（Sa 12:00-14:00，出菜到 13:30）。\n12:30 開吃，一小時多的吃飯＋聊天時間。吃完接 14:00 校園巡禮。"
+  },
+  {
+   "id": "vdl7b8otvihc88tbf4gobpauu8",
+   "summary": "聖誕市集（老城市場→Kröpcke→Hbf Weihnachtsdorf，晚餐市集解決）",
+   "start": "2026-11-28T17:00:00+01:00",
+   "end": "2026-11-28T19:30:00+01:00",
+   "location": "",
+   "description": "天黑後進場最有氣氛。路線：Marktkirche／歷史市集 → Kröpcke 聖誕金字塔 → Hbf Weihnachtsdorf。\n晚餐市集解決（Bratwurst／Flammkuchen＋Glühwein）。\n註：BenDorma check-in 15:00-22:00；市集結束後先回 Nordstadt check-in 再進超市採買（順路）。"
+  },
+  {
+   "id": "sa6p2e6edvcg691dm53ulu32ic",
+   "summary": "超市採買＋回旅館開喝",
+   "start": "2026-11-28T19:30:00+01:00",
+   "end": "2026-11-28T22:00:00+01:00",
+   "location": "",
+   "description": "Hbf 超市（週六開到 22:00+，週日全德超市關——最後採買窗）：酒＋下酒菜 → 旅館聊天到晚"
+  },
+  {
+   "id": "24dut9vheoaob5bohgm4s0qnq4",
+   "summary": "睡到自然醒（凌晨 1:00–11:00；前一晚喝到晚）",
+   "start": "2026-11-29T01:00:00+01:00",
+   "end": "2026-11-29T11:00:00+01:00",
+   "location": "",
+   "description": "週六夜超市採買後開喝"
+  },
+  {
+   "id": "ddvsleho19l9msfb7nv2muupr0",
+   "summary": "聖誕市集二進場（不同攤 Glühwein＋收集杯子）",
+   "start": "2026-11-29T16:30:00+01:00",
+   "end": "2026-11-29T18:00:00+01:00",
+   "location": "",
+   "description": "天黑後二進場，19:00 收，走去 Bing 那邊／Lidl。"
+  },
+  {
+   "id": "k1pknurrno0ufr4aa28do6t1cs",
+   "summary": "Lidl（Hbf，Niki-de-Saint-Phalle-Promenade）",
+   "start": "2026-11-29T18:00:00+01:00",
+   "end": "2026-11-29T19:15:00+01:00",
+   "location": "",
+   "description": "週日營業 09:00–22:00（車站區 Sonntagsverkauf）。\n試試看：如果週六超市採買有漏，這裡補酒＋下酒菜。\n20:00 Bing 場前補貨窗；沒需要就當逛車站商場消化一下。"
+  },
+  {
+   "id": "15fec11o9jkulr1pfjni0o48cl",
+   "summary": "回The Fizz 準備",
+   "start": "2026-11-29T19:15:00+01:00",
+   "end": "2026-11-29T20:00:00+01:00",
+   "location": "",
+   "description": ""
+  },
+  {
+   "id": "cht3rhnr5pbi8olkarbihea6pc",
+   "summary": "Bing＋Walter 小酒會（酒已週六買）",
+   "start": "2026-11-29T20:00:00+01:00",
+   "end": "2026-11-29T23:00:00+01:00",
+   "location": "",
+   "description": "Bing（中國朋友，論文衝刺中）＋Walter。23:00 收——Boyo 週一 10:00 德文課、Bing 論文。"
+  },
+  {
+   "id": "gflstmu6jfooermtqi3jfd6de0",
+   "summary": "Boyo 上課；Walter 自由（退房、Hbf 購物街買伴手禮）",
+   "start": "2026-11-30T08:00:00+01:00",
+   "end": "2026-11-30T14:30:00+01:00",
+   "location": "",
+   "description": "德國聖誕餅乾等伴手禮"
+  },
+  {
+   "id": "e6ioa9ugi6v3824fq4o8au0lrs",
+   "summary": "Walter 出發 HAJ（U-Bahn 直達）",
+   "start": "2026-11-30T16:00:00+01:00",
+   "end": "2026-11-30T16:30:00+01:00",
+   "location": "",
+   "description": "FIZZ → Hbf U-Bahn ~15分 → S5 16:30 發車（每 30 分一班，車程 18 分）→ 16:48 到機場；18:15 起飛，機場 buffer 約 1.5h"
+  }
+ ]
+}
