@@ -94,6 +94,14 @@ let FOLLOW_LISTENER = null;
 function showMyLocation() {
   const btn = document.getElementById('loc-btn');
   if (!navigator.geolocation) { btn.textContent = '❌ 裝置不支援定位'; return; }
+  // toggle OFF: stop following immediately — NO new geolocation request
+  if (FOLLOW) {
+    FOLLOW = false;
+    if (FOLLOW_LISTENER) { navigator.geolocation.clearWatch(FOLLOW_LISTENER); FOLLOW_LISTENER = null; }
+    btn.textContent = '📍 我在哪裡';
+    return;
+  }
+  // toggle ON: acquire position once, then follow
   btn.textContent = '⏳ 定位中…';
   navigator.geolocation.getCurrentPosition(pos => {
     const me = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -118,27 +126,19 @@ function showMyLocation() {
     }
     MAP.panTo(me);
     if (MAP.getZoom() < 15) MAP.setZoom(16);
-    btn.textContent = FOLLOW ? '📍 跟隨中（點一下停）' : '📍 我在哪裡';
-    // follow mode: center map on moves until toggled off
-    if (!FOLLOW) {
-      FOLLOW = true;
-      btn.textContent = '📍 跟隨中（點一下停）';
-      FOLLOW_LISTENER = navigator.geolocation.watchPosition(
-        p2 => {
-          const m2 = { lat: p2.coords.latitude, lng: p2.coords.longitude };
-          USER_MARKER.setPosition(m2);
-          USER_ACCURACY.setCenter(m2);
-          USER_ACCURACY.setRadius(p2.coords.accuracy);
-          MAP.panTo(m2);
-        },
-        () => {},
-        { enableHighAccuracy: true, maximumAge: 5000 }
-      );
-    } else {
-      FOLLOW = false;
-      if (FOLLOW_LISTENER) { navigator.geolocation.clearWatch(FOLLOW_LISTENER); FOLLOW_LISTENER = null; }
-      btn.textContent = '📍 我在哪裡';
-    }
+    FOLLOW = true;
+    btn.textContent = '📍 跟隨中（點一下停）';
+    FOLLOW_LISTENER = navigator.geolocation.watchPosition(
+      p2 => {
+        const m2 = { lat: p2.coords.latitude, lng: p2.coords.longitude };
+        USER_MARKER.setPosition(m2);
+        USER_ACCURACY.setCenter(m2);
+        USER_ACCURACY.setRadius(p2.coords.accuracy);
+        MAP.panTo(m2);
+      },
+      () => {},
+      { enableHighAccuracy: true, maximumAge: 5000 }
+    );
   }, err => {
     btn.textContent = '⚠️ 定位失敗（權限？）';
     console.warn('geolocation error:', err);
