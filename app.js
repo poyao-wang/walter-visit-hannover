@@ -220,7 +220,7 @@ function addMarkers() {
         `<div style="margin-top:6px"><a href="${dirUrl}" target="_blank" rel="noopener">🧭 導航</a></div></div>`,
     });
     m._iw = iw;                                   // full info window (desc+address+nav) shared by map & list
-    m.addListener('click', () => { closeIW(); iw.open({ anchor: m, map: MAP }); OPEN_IW = iw; });
+    m.addListener('click', () => { closeIW(); iw.anchor = m; iw.open({ anchor: m, map: MAP }); OPEN_IW = iw; });
     iw.addListener('closeclick', () => { if (OPEN_IW === iw) OPEN_IW = null; });
     MARKERS.push(m);
     if (p.status !== 'info') bounds.extend(m.getPosition());
@@ -244,20 +244,37 @@ function renderPlaceList() {
     for (const p of group) {
       const li = document.createElement('li');
       li.innerHTML = `
+        <input type="checkbox" class="place-check" data-id="${p.id}" checked>
         <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div></div>
         <div class="go">導航 ↗</div>`;
+      const cb = li.querySelector('.place-check');
+      cb.addEventListener('click', ev => {
+        ev.stopPropagation();
+        setPlaceVisible(p.id, cb.checked);
+      });
       li.addEventListener('click', () => {
         const m = MARKERS.find(mk => mk.getTitle() === p.name);
         if (m && m._iw) {
           MAP.panTo(m.getPosition());
           MAP.setZoom(Math.max(MAP.getZoom(), 15));
           closeIW();
+          m._iw.anchor = m;
           m._iw.open({ anchor: m, map: MAP });
           OPEN_IW = m._iw;
         }
       });
       ul.appendChild(li);
     }
+  }
+}
+
+function setPlaceVisible(id, visible) {
+  const p = PLACES.find(x => x.id === id);
+  if (!p) return;
+  const m = MARKERS.find(mk => mk.getTitle() === p.name);
+  if (m) {
+    m.setMap(visible ? MAP : null);
+    if (!visible && OPEN_IW && OPEN_IW.anchor === m) closeIW();
   }
 }
 

@@ -140,3 +140,9 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
   border-bottom: 1px solid var(--border);
 }
 #place-list .group-head:first-child { margin-top: 0; }
+
+/* place list checkbox filter */
+#place-list li .place-check {
+  width: 18px; height: 18px; accent-color: var(--anchor);
+  flex-shrink: 0; margin-right: 2px; cursor: pointer;
+}
