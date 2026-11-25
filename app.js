@@ -228,26 +228,36 @@ function addMarkers() {
   if (!bounds.isEmpty()) MAP.fitBounds(bounds, 40);
 }
 
+const CAT_ORDER = ['lodging', 'transport', 'food', 'sight', 'shopping'];
+const CAT_ICON  = {lodging:'🏠', transport:'✈️', food:'🍽️', sight:'🎡', shopping:'🛒'};
+
 function renderPlaceList() {
   const ul = document.getElementById('place-list');
   ul.innerHTML = '';
-  for (const p of PLACES) {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div>
-      <div class="cat">${CAT_LABEL[p.category] || p.category}</div></div>
-      <div class="go">導航 ↗</div>`;
-    li.addEventListener('click', () => {
-      const m = MARKERS.find(mk => mk.getTitle() === p.name);
-      if (m && m._iw) {
-        MAP.panTo(m.getPosition());
-        MAP.setZoom(Math.max(MAP.getZoom(), 15));
-        closeIW();
-        m._iw.open({ anchor: m, map: MAP });     // same info window as a direct marker tap
-        OPEN_IW = m._iw;
-      }
-    });
-    ul.appendChild(li);
+  for (const cat of CAT_ORDER) {
+    const group = PLACES.filter(p => p.category === cat);
+    if (!group.length) continue;
+    const h = document.createElement('li');
+    h.className = 'group-head';
+    h.textContent = `${CAT_ICON[cat] || ''} ${CAT_LABEL[cat] || cat}（${group.length}）`;
+    ul.appendChild(h);
+    for (const p of group) {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div></div>
+        <div class="go">導航 ↗</div>`;
+      li.addEventListener('click', () => {
+        const m = MARKERS.find(mk => mk.getTitle() === p.name);
+        if (m && m._iw) {
+          MAP.panTo(m.getPosition());
+          MAP.setZoom(Math.max(MAP.getZoom(), 15));
+          closeIW();
+          m._iw.open({ anchor: m, map: MAP });
+          OPEN_IW = m._iw;
+        }
+      });
+      ul.appendChild(li);
+    }
   }
 }
 

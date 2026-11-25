@@ -65,7 +65,7 @@
       "name": "老城聖誕市集（Marktkirche）",
       "lat": 52.3743,
       "lng": 9.7303,
-      "category": "market",
+      "category": "sight",
       "address": "Marktplatz, 30159 Hannover",
       "desc": "漢諾威聖誕市集主場：Marktkirche 旁的歷史市集。Bratwurst、Glühwein、聖誕杯收集起點。",
       "status": "anchor"
@@ -75,7 +75,7 @@
       "name": "Kröpcke 聖誕金字塔",
       "lat": 52.375,
       "lng": 9.7352,
-      "category": "market",
+      "category": "sight",
       "address": "Kröpcke, 30159 Hannover",
       "desc": "市中心地標＋巨型聖誕金字塔，市集動線中繼站。",
       "status": "anchor"
@@ -85,7 +85,7 @@
       "name": "Hbf Weihnachtsdorf（車站聖誕村）",
       "lat": 52.3767,
       "lng": 9.739,
-      "category": "market",
+      "category": "sight",
       "address": "Ernst-August-Platz 1, 30159 Hannover",
       "desc": "漢諾威車站前木屋市集（11:00–21:00）。市集動線終點，接超市採買。",
       "status": "anchor"

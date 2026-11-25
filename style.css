@@ -132,3 +132,11 @@ footer .version { color: var(--accent); }
 
 /* iOS: kill double-tap zoom (same as family-timezone) */
 body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
+
+/* place list group headers */
+#place-list .group-head {
+  list-style: none; margin-top: 14px; padding: 6px 2px 4px;
+  color: var(--accent); font-weight: 700; font-size: .85rem;
+  border-bottom: 1px solid var(--border);
+}
+#place-list .group-head:first-child { margin-top: 0; }
