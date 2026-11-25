@@ -114,6 +114,8 @@ document.querySelectorAll('.day-tab').forEach(btn =>
 
 /* ================= Map ================= */
 const CAT_LABEL = {lodging:'住宿', transport:'交通', food:'吃', market:'市集', shopping:'採買', sight:'景點', info:'航班'};
+let OPEN_IW = null;                       // only one info window open at a time
+function closeIW() { if (OPEN_IW) { OPEN_IW.close(); OPEN_IW = null; } }
 
 function initMap() {
   MAP = new google.maps.Map(document.getElementById('map'), {
@@ -218,7 +220,8 @@ function addMarkers() {
         `<div style="margin-top:6px"><a href="${dirUrl}" target="_blank" rel="noopener">🧭 導航</a></div></div>`,
     });
     m._iw = iw;                                   // full info window (desc+address+nav) shared by map & list
-    m.addListener('click', () => { iw.open({ anchor: m, map: MAP }); });
+    m.addListener('click', () => { closeIW(); iw.open({ anchor: m, map: MAP }); OPEN_IW = iw; });
+    iw.addListener('closeclick', () => { if (OPEN_IW === iw) OPEN_IW = null; });
     MARKERS.push(m);
     if (p.status !== 'info') bounds.extend(m.getPosition());
   }
@@ -239,7 +242,9 @@ function renderPlaceList() {
       if (m && m._iw) {
         MAP.panTo(m.getPosition());
         MAP.setZoom(Math.max(MAP.getZoom(), 15));
+        closeIW();
         m._iw.open({ anchor: m, map: MAP });     // same info window as a direct marker tap
+        OPEN_IW = m._iw;
       }
     });
     ul.appendChild(li);
