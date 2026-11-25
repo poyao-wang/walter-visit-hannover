@@ -213,7 +213,9 @@ function addMarkers() {
       },
     });
     const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
-    const viewUrl = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+    // name+city query resolves to the actual POI card; bare coords only show a dropped pin
+    const q = encodeURIComponent(p.name.split('（')[0].trim() + ' Hannover');
+    const viewUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
     const iw = new google.maps.InfoWindow({
       content: `<div class="iw"><div class="iw-name">${esc(p.name)}</div>` +
         `<div class="iw-desc">${esc(p.desc)}</div>` +
