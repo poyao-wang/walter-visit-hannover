@@ -30,8 +30,9 @@ async function loadEvents() {
   renderTimeline(data2.events, data2.updated);
 }
 
-function evDate(e) { return new Date(e.start && (e.start.dateTime || e.start.date)); }
-function evEnd(e)  { return new Date(e.end   && (e.end.dateTime   || e.end.date));   }
+function _d(v) { return new Date(typeof v === 'string' ? v : (v && (v.dateTime || v.date))); }
+function evDate(e) { return _d(e.start); }
+function evEnd(e)  { return _d(e.end); }
 
 function renderTimeline(events, updated) {
   const el = document.getElementById('timeline');
@@ -50,7 +51,7 @@ function renderTimeline(events, updated) {
   for (const e of list) {
     const s = evDate(e), t = evEnd(e);
     const hm = x => `${String(x.getHours()).padStart(2,'0')}:${String(x.getMinutes()).padStart(2,'0')}`;
-    const allDay = !e.start.dateTime;
+    const allDay = typeof e.start === 'string' ? !e.start.includes('T') : !e.start.dateTime;
     const dur = (!allDay && !isNaN(t)) ? `${Math.round((t-s)/60000)}m` : '';
     const past = t < now, nowNow = s <= now && now <= t;
     const div = document.createElement('div');
