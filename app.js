@@ -34,6 +34,9 @@ function _d(v) { return new Date(typeof v === 'string' ? v : (v && (v.dateTime |
 function evDate(e) { return _d(e.start); }
 function evEnd(e)  { return _d(e.end); }
 
+const PX_PER_HOUR = 64;          // true-scale: 1 hour = 64px
+const DAY_START_H = 7, DAY_END_H = 24;
+
 function renderTimeline(events, updated) {
   const el = document.getElementById('timeline');
   const byDay = {};
@@ -43,25 +46,49 @@ function renderTimeline(events, updated) {
       : `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
     (byDay[key] = byDay[key] || []).push(e);
   }
-  el.innerHTML = '';
   const active = document.querySelector('.day-tab.active').dataset.day;
   const list = (byDay[active] || []).sort((a,b) => evDate(a) - evDate(b));
   const now = new Date();
-  if (!list.length) { el.innerHTML = '<p class="src-note">這天沒有排程。</p>'; return; }
+  const hm = x => `${String(x.getHours()).padStart(2,'0')}:${String(x.getMinutes()).padStart(2,'0')}`;
+
+  // ---- hour grid (true scale) ----
+  let grid = '';
+  for (let h = DAY_START_H; h <= DAY_END_H; h++) {
+    grid += `<div class="hour-row" style="top:${(h-DAY_START_H)*PX_PER_HOUR}px">
+      <span class="hour-label">${String(h).padStart(2,'0')}:00</span><span class="hour-line"></span></div>`;
+  }
+  const totalH = (DAY_END_H - DAY_START_H) * PX_PER_HOUR;
+
+  // ---- events positioned by real time ----
+  let evHtml = '';
   for (const e of list) {
     const s = evDate(e), t = evEnd(e);
-    const hm = x => `${String(x.getHours()).padStart(2,'0')}:${String(x.getMinutes()).padStart(2,'0')}`;
     const allDay = typeof e.start === 'string' ? !e.start.includes('T') : !e.start.dateTime;
-    const dur = (!allDay && !isNaN(t)) ? `${Math.round((t-s)/60000)}m` : '';
     const past = t < now, nowNow = s <= now && now <= t;
-    const div = document.createElement('div');
-    div.className = 'ev' + (past ? ' past' : '') + (nowNow ? ' now' : '');
-    div.innerHTML = `
-      <div class="time">${allDay ? '全天' : hm(s)}${dur ? `<span class="dur">${dur}</span>` : ''}</div>
-      <div class="body"><div class="t">${esc(e.summary || '')}</div>
+    const top = ((s.getHours() + s.getMinutes()/60) - DAY_START_H) * PX_PER_HOUR;
+    const endH = isNaN(t) ? s.getHours() + 1 : t.getHours() + t.getMinutes()/60;
+    const height = Math.max(28, (Math.min(endH, DAY_END_H) - Math.max(s.getHours() + s.getMinutes()/60, DAY_START_H)) * PX_PER_HOUR - 4);
+    evHtml += `<div class="ev${past ? ' past' : ''}${nowNow ? ' now' : ''}"
+      style="top:${top}px;height:${height}px">
+      <div class="t">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
+      ${!allDay && !isNaN(t) ? `<div class="time">${hm(s)}–${hm(t)}</div>` : ''}
       ${e.description ? `<div class="d">${esc(e.description)}</div>` : ''}</div>`;
-    el.appendChild(div);
   }
+
+  // ---- red now-line if today ----
+  const nowKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  let nowLine = '';
+  if (nowKey === active) {
+    const ny = ((now.getHours() + now.getMinutes()/60) - DAY_START_H) * PX_PER_HOUR;
+    if (ny >= 0 && ny <= totalH) nowLine = `<div class="now-line" style="top:${ny}px"></div>`;
+  }
+
+  el.innerHTML = `<div class="day-grid" style="height:${totalH}px">${grid}${nowLine}${evHtml}</div>`;
+
+  // scroll to first upcoming event (or now-line)
+  const first = el.querySelector('.ev:not(.past)') || el.querySelector('.now-line');
+  if (first) el.scrollTop = Math.max(0, first.offsetTop - 70);
+
   const u = updated ? new Date(updated) : new Date();
   document.getElementById('cal-updated').textContent =
     `來源：walter-visit-2026-11-28 公開日曆（即時抓取）· 更新 ${u.toLocaleString('zh-TW')}`;
