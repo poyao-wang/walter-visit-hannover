@@ -70,7 +70,7 @@ function renderTimeline(events, updated) {
     const mins = (Math.min(endH, DAY_END_H) - Math.max(s.getHours() + s.getMinutes()/60, DAY_START_H)) * 60;
     const height = Math.max(34, mins * PX_PER_HOUR / 60 - 4);
     // short events (<45min): title+time only; description would clip
-    const showDesc = mins >= 45 && e.description;
+    const showDesc = mins >= 75 && e.description;
     evHtml += `<div class="ev${past ? ' past' : ''}${nowNow ? ' now' : ''}"
       style="top:${top}px;height:${height}px">
       <div class="t">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
