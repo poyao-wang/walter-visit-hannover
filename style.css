@@ -149,7 +149,8 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
 
 /* group header checkbox */
 #place-list .group-head {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; justify-content: flex-start; align-items: center; gap: 6px;
+  cursor: default;
 }
 #place-list .group-head .group-check {
   width: 18px; height: 18px; accent-color: var(--anchor);
