@@ -218,3 +218,6 @@ function esc(s) {
 
 loadEvents();
 window.initMap = initMap;
+
+const LOC_BTN = document.getElementById('loc-btn');
+if (LOC_BTN) LOC_BTN.addEventListener('click', showMyLocation);
