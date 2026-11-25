@@ -129,3 +129,6 @@ footer .version { color: var(--accent); }
 @media (min-width: 640px) {
   #map { height: 460px; }
 }
+
+/* iOS: kill double-tap zoom (same as family-timezone) */
+body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
