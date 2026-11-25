@@ -213,11 +213,14 @@ function addMarkers() {
       },
     });
     const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
+    const viewUrl = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
     const iw = new google.maps.InfoWindow({
       content: `<div class="iw"><div class="iw-name">${esc(p.name)}</div>` +
         `<div class="iw-desc">${esc(p.desc)}</div>` +
         `<div class="iw-desc" style="color:#666;margin-top:4px">${esc(p.address || '')}</div>` +
-        `<div style="margin-top:6px"><a href="${dirUrl}" target="_blank" rel="noopener">🧭 導航</a></div></div>`,
+        `<div style="margin-top:6px;display:flex;gap:14px">` +
+        `<a href="${dirUrl}" target="_blank" rel="noopener">🧭 導航</a>` +
+        `<a href="${viewUrl}" target="_blank" rel="noopener">🗺️ 在 Google Maps 開啟</a></div></div>`,
     });
     m._iw = iw;                                   // full info window (desc+address+nav) shared by map & list
     m.addListener('click', () => { closeIW(); iw.anchor = m; iw.open({ anchor: m, map: MAP }); OPEN_IW = iw; });
