@@ -217,6 +217,7 @@ function addMarkers() {
         `<div class="iw-desc" style="color:#666;margin-top:4px">${esc(p.address || '')}</div>` +
         `<div style="margin-top:6px"><a href="${dirUrl}" target="_blank" rel="noopener">🧭 導航</a></div></div>`,
     });
+    m._iw = iw;                                   // full info window (desc+address+nav) shared by map & list
     m.addListener('click', () => { iw.open({ anchor: m, map: MAP }); });
     MARKERS.push(m);
     if (p.status !== 'info') bounds.extend(m.getPosition());
@@ -234,14 +235,11 @@ function renderPlaceList() {
       <div class="cat">${CAT_LABEL[p.category] || p.category}</div></div>
       <div class="go">導航 ↗</div>`;
     li.addEventListener('click', () => {
-      // center + open info window
       const m = MARKERS.find(mk => mk.getTitle() === p.name);
-      if (m) {
+      if (m && m._iw) {
         MAP.panTo(m.getPosition());
         MAP.setZoom(Math.max(MAP.getZoom(), 15));
-        new google.maps.InfoWindow({
-          content: m._iwContent || `<div class="iw"><div class="iw-name">${esc(p.name)}</div></div>`,
-        }).open({ anchor: m, map: MAP });
+        m._iw.open({ anchor: m, map: MAP });     // same info window as a direct marker tap
       }
     });
     ul.appendChild(li);
