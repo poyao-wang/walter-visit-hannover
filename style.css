@@ -146,3 +146,12 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
   width: 18px; height: 18px; accent-color: var(--anchor);
   flex-shrink: 0; margin-right: 2px; cursor: pointer;
 }
+
+/* group header checkbox */
+#place-list .group-head {
+  display: flex; align-items: center; gap: 6px;
+}
+#place-list .group-head .group-check {
+  width: 18px; height: 18px; accent-color: var(--anchor);
+  flex-shrink: 0; cursor: pointer;
+}

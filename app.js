@@ -239,7 +239,20 @@ function renderPlaceList() {
     if (!group.length) continue;
     const h = document.createElement('li');
     h.className = 'group-head';
-    h.textContent = `${CAT_ICON[cat] || ''} ${CAT_LABEL[cat] || cat}（${group.length}）`;
+    h.innerHTML = `
+      <input type="checkbox" class="group-check" data-cat="${cat}" checked>
+      <span>${CAT_ICON[cat] || ''} ${CAT_LABEL[cat] || cat}（${group.length}）</span>`;
+    const gcb = h.querySelector('.group-check');
+    gcb.addEventListener('click', ev => {
+      ev.stopPropagation();
+      document.querySelectorAll(`.place-check[data-id]`).forEach(cb => {
+        const pl = PLACES.find(x => x.id === cb.dataset.id);
+        if (pl && pl.category === cat && cb.checked !== gcb.checked) {
+          cb.checked = gcb.checked;
+          setPlaceVisible(pl.id, gcb.checked);
+        }
+      });
+    });
     ul.appendChild(h);
     for (const p of group) {
       const li = document.createElement('li');
