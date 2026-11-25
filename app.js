@@ -73,8 +73,8 @@ function renderTimeline(events, updated) {
     const showDesc = mins >= 75 && e.description;
     evHtml += `<div class="ev${past ? ' past' : ''}${nowNow ? ' now' : ''}"
       style="top:${top}px;height:${height}px">
-      <div class="t">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
-      ${!allDay && !isNaN(t) ? `<div class="time">${hm(s)}–${hm(t)}</div>` : ''}
+      <div class="t${mins < 45 ? ' compact' : ''}">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
+      ${!allDay && !isNaN(t) && mins >= 45 ? `<div class="time">${hm(s)}–${hm(t)}</div>` : ''}
       ${showDesc ? `<div class="d">${esc(e.description)}</div>` : ''}</div>`;
   }
 
