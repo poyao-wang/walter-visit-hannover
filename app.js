@@ -123,9 +123,9 @@ function addMarkers() {
     });
     m.addListener('click', () => { iw.open({ anchor: m, map: MAP }); });
     MARKERS.push(m);
-    bounds.extend(m.getPosition());
+    if (p.status !== 'info') bounds.extend(m.getPosition());
   }
-  if (PLACES.length) MAP.fitBounds(bounds, 40);
+  if (!bounds.isEmpty()) MAP.fitBounds(bounds, 40);
 }
 
 function renderPlaceList() {
