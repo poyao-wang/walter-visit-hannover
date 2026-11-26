@@ -187,9 +187,19 @@ function showMyLocation() {
 }
 
 async function loadPlaces() {
-  const r = await fetch('places.json');
-  const data = await r.json();
-  PLACES = data.places;
+  // primary: Notion-backed proxy (live data, 60s cache); fallback: bundled places.json
+  try {
+    const r = await fetch('https://walter-visit-places-27rf4yfwwa-de.a.run.app/places', { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error('proxy ' + r.status);
+    const data = await r.json();
+    if (!data.places || !data.places.length) throw new Error('proxy empty');
+    PLACES = data.places;
+  } catch (e) {
+    console.warn('places proxy unavailable, falling back to places.json:', e.message);
+    const r = await fetch('places.json');
+    const data = await r.json();
+    PLACES = data.places;
+  }
   addMarkers();
   renderPlaceList();
 }
