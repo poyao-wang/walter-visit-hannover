@@ -332,3 +332,17 @@ const SHOW_BTN = document.getElementById('show-all');
 const HIDE_BTN = document.getElementById('hide-all');
 if (SHOW_BTN) SHOW_BTN.addEventListener('click', () => setAllPlaces(true));
 if (HIDE_BTN) HIDE_BTN.addEventListener('click', () => setAllPlaces(false));
+
+/* global nav: active state follows scroll position */
+const NAV_BTNS = [...document.querySelectorAll('.nav-btn')];
+function updateNav() {
+  const y = window.scrollY + 160;
+  let active = 'timeline-section';
+  for (const b of NAV_BTNS) {
+    const sec = document.getElementById(b.dataset.target);
+    if (sec && sec.offsetTop <= y) active = b.dataset.target;
+  }
+  NAV_BTNS.forEach(b => b.classList.toggle('active', b.dataset.target === active));
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();

@@ -166,3 +166,15 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
 .list-btn:active { background: var(--accent); color: #06232f; }
 
 #place-list li[style] { border-radius: 8px; margin: 3px 0; }
+
+/* ---------- global nav (inside sticky topbar) ---------- */
+.topbar-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.global-nav { display: flex; gap: 8px; margin-top: 10px; }
+.nav-btn {
+  flex: 1; text-align: center; padding: 9px 0; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted);
+  font-size: .95rem; font-weight: 700; text-decoration: none;
+}
+.nav-btn.active { color: var(--accent); border-color: var(--accent); background: #0e2233; }
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 150px; }

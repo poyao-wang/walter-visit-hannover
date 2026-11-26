@@ -4,21 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Walter 來訪 · 漢諾威週末 2026</title>
-<link rel="stylesheet" href="style.css?v=1.2.6">
+<link rel="stylesheet" href="style.css?v=1.2.7">
 <link rel="icon" href="icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 </head>
 <body>
 <header class="topbar">
-  <div>
-    <h1>🧳 Walter 來訪</h1>
-    <p class="sub">11/28（六）– 11/30（一）· Hannover</p>
+  <div class="topbar-row">
+    <div>
+      <h1>🧳 Walter 來訪</h1>
+      <p class="sub">11/28（六）– 11/30（一）· Hannover</p>
+    </div>
+    <div class="flight-badge">
+      <span class="in">✈️ IN 11/28 10:20</span>
+      <span class="out">✈️ OUT 11/30 18:15</span>
+    </div>
   </div>
-  <div class="flight-badge">
-    <span class="in">✈️ IN 11/28 10:20</span>
-    <span class="out">✈️ OUT 11/30 18:15</span>
-  </div>
+  <nav class="global-nav">
+    <a href="#timeline-section" class="nav-btn active" data-target="timeline-section">📅 日曆</a>
+    <a href="#map-section" class="nav-btn" data-target="map-section">🗺️ 地圖</a>
+  </nav>
 </header>
 
 <main>
@@ -63,7 +69,7 @@
   </footer>
 </main>
 
-<script src="app.js?v=1.2.6"></script>
+<script src="app.js?v=1.2.7"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWPvsA_SU08rkUhOIVdafZwzAwHbM9aE&loading=async&callback=initMap&language=zh-TW&region=DE">
 </script>
