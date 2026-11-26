@@ -223,9 +223,10 @@ function addMarkers() {
       },
     });
     const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
-    // POI-name query resolves to the actual place card; bare coords only show a dropped pin
-    const q = encodeURIComponent(p.query || (p.name.split('（')[0].trim() + ' Hannover'));
-    const viewUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
+    // /maps/place/NAME/@lat,lng,17z pins the exact POI card at that location —
+    // precise even for ambiguous names (name shown as-is + map centered on our coords)
+    const nm = encodeURIComponent(p.query || p.name.split('（')[0].trim());
+    const viewUrl = `https://www.google.com/maps/place/${nm}/@${p.lat},${p.lng},17z`;
     const iw = new google.maps.InfoWindow({
       content: `<div class="iw"><div class="iw-name">${esc(p.name)}</div>` +
         `<div class="iw-desc">${esc(p.desc)}</div>` +
