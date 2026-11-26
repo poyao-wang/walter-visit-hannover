@@ -186,6 +186,18 @@ function showMyLocation() {
   }, { enableHighAccuracy: true, timeout: 10000 });
 }
 
+// Notion stores Category/Status as Chinese labels; normalize to the app's English keys
+const CAT_CN2EN = {'住宿':'lodging','交通':'transport','吃':'food','景點':'sight','採買':'shopping'};
+const STA_CN2EN = {'定案':'anchor','備選':'option','航班':'flight','資訊':'info'};
+function normalizePlaces(list) {
+  for (const p of list) {
+    p.category = CAT_CN2EN[p.category] || p.category;
+    p.status = STA_CN2EN[p.status] || p.status;
+    if (!p.id) p.id = 'n' + Math.abs((p.name||'').split('').reduce((a,c) => (a*31 + c.charCodeAt(0))|0, 7));
+  }
+  return list;
+}
+
 async function loadPlaces() {
   // primary: Notion-backed proxy (live data, 60s cache); fallback: bundled places.json
   try {
@@ -193,7 +205,7 @@ async function loadPlaces() {
     if (!r.ok) throw new Error('proxy ' + r.status);
     const data = await r.json();
     if (!data.places || !data.places.length) throw new Error('proxy empty');
-    PLACES = data.places;
+    PLACES = normalizePlaces(data.places);
   } catch (e) {
     console.warn('places proxy unavailable, falling back to places.json:', e.message);
     const r = await fetch('places.json');
