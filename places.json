@@ -131,14 +131,14 @@
     {
       "id": "roter-faden",
       "name": "Roter Faden 紅線徒步起點",
-      "lat": 52.3748,
-      "lng": 9.7322,
+      "lat": 52.3753871,
+      "lng": 9.7413501,
       "category": "sight",
       "address": "Ernst-August-Platz（旅遊局前）, 30159 Hannover",
       "desc": "4.2 km 地上紅線串 36 個老城景點。跟著走就對。備選行程。",
       "status": "option",
       "query": "Roter Faden Hannover",
-      "link": "https://www.google.com/maps/place/Roter+Faden/@52.3713481,9.7390899,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0753ce4193b6f:0x57c92542e185a10!8m2!3d52.3713481!4d9.7390899!16s/g/11k2ynf3h_"
+      "link": "https://www.google.com/maps/place/Roter+Faden+Starting+Point/@52.3752347,9.739993,18.09z/data=!4m6!3m5!1s0x47b075002b438ae1:0x4e388582ed99e810!8m2!3d52.3753871!4d9.7413501!16s%2Fg%2F11z73zcjsg"
     },
     {
       "id": "herrenhausen",
