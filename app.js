@@ -7,22 +7,16 @@ let MAP, MARKERS = [];
 
 /* ================= Calendar / timeline ================= */
 async function loadEvents() {
-  // live fetch from public Google Calendar (no key needed: public calendar JSON feed)
-  const fmt = d => d.toISOString().replace(/\.\d{3}/, '');
-  const now = new Date();
-  const min = new Date(2026, 10, 27);           // 11/27 00:00 local
-  const max = new Date(2026, 11, 2);            // 12/02 00:00 local
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CAL_ID)}` +
-              `/events?singleEvents=true&orderBy=startTime` +
-              `&timeMin=${encodeURIComponent(fmt(min))}&timeMax=${encodeURIComponent(fmt(max))}`;
+  // live fetch via our Cloud Run proxy (reads the calendar's public ICS feed, 60s cache)
   try {
-    const r = await fetch(url);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const r = await fetch('https://walter-visit-places-27rf4yfwwa-de.a.run.app/calendar', { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error('proxy ' + r.status);
     const data = await r.json();
-    renderTimeline(data.items || [], data.updated);
+    if (!data.events || !data.events.length) throw new Error('proxy empty');
+    renderTimeline(data.events, data.fetched_at);
     return;
   } catch (e) {
-    console.warn('live fetch failed, fallback to baked events.json:', e);
+    console.warn('calendar proxy unavailable, fallback to baked events.json:', e);
   }
   // fallback: baked copy
   const r2 = await fetch('events.json');
