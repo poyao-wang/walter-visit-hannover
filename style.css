@@ -23,7 +23,8 @@ body {
 /* ---------- top bar ---------- */
 .topbar {
   display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
-  padding: 10px 16px 8px;
+  padding: 10px calc((100% - 760px) / 2 + 12px) 8px;   /* content ~760px, centered; 16px padding on narrow screens */
+
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; background: rgba(16,20,24,.96); backdrop-filter: blur(8px);
   z-index: 50;
