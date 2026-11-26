@@ -273,15 +273,19 @@ function renderPlaceList() {
       const li = document.createElement('li');
       const catBg = (CAT_COLOR[p.category] || {bg:'#1a2028'}).bg;
       li.style.background = catBg;
+      // p.link = real feature-id place URL (opens full POI card); fallback to pinned coords
+      const mapsUrl = p.link ||
+        `https://www.google.com/maps/place/${encodeURIComponent(p.query || p.name.split('（')[0].trim())}/@${p.lat},${p.lng},17z`;
       li.innerHTML = `
         <input type="checkbox" class="place-check" data-id="${p.id}" checked>
         <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div></div>
-        <div class="go">導航 ↗</div>`;
+        <div class="go"><a href="${mapsUrl}" target="_blank" rel="noopener">🗺️ Maps ↗</a></div>`;
       const cb = li.querySelector('.place-check');
       cb.addEventListener('click', ev => {
         ev.stopPropagation();
         setPlaceVisible(p.id, cb.checked);
       });
+      li.querySelector('.go a').addEventListener('click', ev => ev.stopPropagation());
       li.addEventListener('click', () => {
         const m = MARKERS.find(mk => mk.getTitle() === p.name);
         if (m && m._iw) {
