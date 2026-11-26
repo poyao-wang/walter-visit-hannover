@@ -65,13 +65,21 @@
 
   <footer>
     <p>Boyo &amp; Walter · Hannover · 資料來源：walter-visit-2026-11-28 公開日曆</p>
-    <p class="version">v1.4.5</p>
+    <p class="version">v1.4.6</p>
   </footer>
 </main>
 
-<script src="app.js?v=1.4.5"></script>
+<script src="app.js?v=1.4.6"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWPvsA_SU08rkUhOIVdafZwzAwHbM9aE&loading=async&callback=initMap&language=zh-TW&region=DE">
 </script>
+
+<!-- event detail modal -->
+<div id="ev-modal" hidden>
+  <div class="ev-modal-card">
+    <button id="ev-modal-close" aria-label="關閉">✕</button>
+    <div id="ev-modal-body"></div>
+  </div>
+</div>
 </body>
 </html>

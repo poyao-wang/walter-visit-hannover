@@ -108,6 +108,12 @@ function renderTimeline(events, updated) {
 
   el.innerHTML = `<div class="day-grid" style="height:${totalH}px">${grid}${nowLine}${evHtml}</div>`;
 
+  // click an event -> detail modal
+  const evMeta = evsMeta;   // kept order matches evHtml build order
+  el.querySelectorAll('.ev').forEach((elx, i) => {
+    elx.addEventListener('click', () => openEventModal(evMeta[i] && evMeta[i].e));
+  });
+
   // scroll to first upcoming event (or now-line)
   const first = el.querySelector('.ev:not(.past)') || el.querySelector('.now-line');
   if (first) el.scrollTop = Math.max(0, first.offsetTop - 70);
@@ -116,6 +122,32 @@ function renderTimeline(events, updated) {
   document.getElementById('cal-updated').textContent =
     `來源：walter-visit-2026-11-28 公開日曆（即時抓取）· 更新 ${u.toLocaleString('zh-TW')}`;
 }
+
+function fmtDateDe(iso) {
+  const d = new Date(typeof iso === 'string' ? iso : (iso && (iso.dateTime || iso.date)));
+  return isNaN(d) ? '' : d.toLocaleString('zh-TW', { month: '2-digit', day: '2-digit', weekday: 'short', hour: '2-digit', minute: '2-digit' });
+}
+
+function openEventModal(e) {
+  if (!e) return;
+  const body = document.getElementById('ev-modal-body');
+  const s = e.start, t = e.end;
+  const allDay = typeof s === 'string' ? !s.includes('T') : !s.dateTime;
+  const timeStr = allDay ? '全天'
+    : `${fmtDateDe(s)}${t ? ' – ' + new Date(t.dateTime || t).toLocaleString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : ''}`;
+  body.innerHTML = `
+    <h3 class="ev-modal-title">${esc(e.summary || '')}</h3>
+    <div class="ev-modal-time">${timeStr}</div>
+    ${e.description ? `<div class="ev-modal-desc">${esc(e.description)}</div>` : ''}
+    ${e.location ? `<div class="ev-modal-loc">📍 ${esc(e.location)}</div>` : ''}`;
+  document.getElementById('ev-modal').hidden = false;
+}
+function closeEventModal() { document.getElementById('ev-modal').hidden = true; }
+document.getElementById('ev-modal-close').addEventListener('click', closeEventModal);
+document.getElementById('ev-modal').addEventListener('click', ev => {
+  if (ev.target.id === 'ev-modal') closeEventModal();   // tap outside closes
+});
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeEventModal(); });
 
 document.querySelectorAll('.day-tab').forEach(btn =>
   btn.addEventListener('click', () => {
