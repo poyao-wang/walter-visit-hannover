@@ -346,3 +346,11 @@ function updateNav() {
 }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
+
+/* collapse topbar title row on scroll down */
+const TOPBAR = document.querySelector('.topbar');
+function updateTopbar() {
+  TOPBAR.classList.toggle('mini', window.scrollY > 60);
+}
+window.addEventListener('scroll', updateTopbar, { passive: true });
+updateTopbar();
