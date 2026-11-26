@@ -28,7 +28,7 @@ body {
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; background: rgba(16,20,24,.96); backdrop-filter: blur(8px);
   z-index: 50;
-  transition: transform .25s ease, opacity .25s ease;
+  transition: transform .25s ease, opacity .25s ease, padding .25s ease;
 }
 /* scroll past the header → collapse title row, keep the nav */
 .topbar.mini { padding: 6px calc((100% - 760px) / 2 + 12px); }

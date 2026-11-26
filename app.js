@@ -347,10 +347,14 @@ function updateNav() {
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
-/* collapse topbar title row on scroll down */
+/* collapse topbar title row on scroll — with hysteresis to prevent flicker at the threshold */
 const TOPBAR = document.querySelector('.topbar');
+let TOPBAR_MINI = false;
 function updateTopbar() {
-  TOPBAR.classList.toggle('mini', window.scrollY > 60);
+  const y = window.scrollY;
+  // collapse beyond 90px; expand back only below 45px — the 45px dead-zone kills the boundary bounce
+  if (!TOPBAR_MINI && y > 90) { TOPBAR_MINI = true; TOPBAR.classList.add('mini'); }
+  else if (TOPBAR_MINI && y < 45) { TOPBAR_MINI = false; TOPBAR.classList.remove('mini'); }
 }
 window.addEventListener('scroll', updateTopbar, { passive: true });
 updateTopbar();
