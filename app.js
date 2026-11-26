@@ -32,6 +32,9 @@ const PX_PER_HOUR = 64;          // true-scale: 1 hour = 64px
 const DAY_END_H = 24;
 let DAY_START_H = 7;             // dynamic: extends up if events start earlier (e.g. 01:00 sleep-in)
 
+let EVENTS_BY_DAY = {};   // cache: all days rendered from the latest fetch
+let EVENTS_UPDATED = null;
+
 function renderTimeline(events, updated) {
   const el = document.getElementById('timeline');
   const byDay = {};
@@ -41,8 +44,14 @@ function renderTimeline(events, updated) {
       : `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
     (byDay[key] = byDay[key] || []).push(e);
   }
-  const active = document.querySelector('.day-tab.active').dataset.day;
-  const list = (byDay[active] || []).sort((a,b) => evDate(a) - evDate(b));
+  EVENTS_BY_DAY = byDay;
+  EVENTS_UPDATED = updated;
+  paintDay(document.querySelector('.day-tab.active').dataset.day);
+}
+
+function paintDay(active) {
+  const el = document.getElementById('timeline');
+  const list = (EVENTS_BY_DAY[active] || []).sort((a,b) => evDate(a) - evDate(b));
   const now = new Date();
   const hm = x => `${String(x.getHours()).padStart(2,'0')}:${String(x.getMinutes()).padStart(2,'0')}`;
 
@@ -118,7 +127,7 @@ function renderTimeline(events, updated) {
   const first = el.querySelector('.ev:not(.past)') || el.querySelector('.now-line');
   if (first) el.scrollTop = Math.max(0, first.offsetTop - 70);
 
-  const u = updated ? new Date(updated) : new Date();
+  const u = EVENTS_UPDATED ? new Date(EVENTS_UPDATED) : new Date();
   document.getElementById('cal-updated').textContent =
     `來源：walter-visit-2026-11-28 公開日曆（即時抓取）· 更新 ${u.toLocaleString('zh-TW')}`;
 }
@@ -153,7 +162,7 @@ document.querySelectorAll('.day-tab').forEach(btn =>
   btn.addEventListener('click', () => {
     document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    loadEvents();
+    paintDay(btn.dataset.day);   // instant: cached render, no refetch
   }));
 
 /* ================= Map ================= */
@@ -396,6 +405,7 @@ function esc(s) {
 }
 
 loadEvents();
+setInterval(loadEvents, 120000);   // auto-refresh calendar data every 2 min
 window.initMap = initMap;
 
 const LOC_BTN = document.getElementById('loc-btn');
