@@ -62,21 +62,39 @@ function renderTimeline(events, updated) {
   const totalH = (DAY_END_H - DAY_START_H) * PX_PER_HOUR;
 
   // ---- events positioned by real time ----
-  let evHtml = '';
-  for (const e of list) {
+  // lane-splitting: overlapping events share the horizontal space (no stacked blue borders)
+  const evsMeta = list.map(e => {
     const s = evDate(e), t = evEnd(e);
-    const allDay = typeof e.start === 'string' ? !e.start.includes('T') : !e.start.dateTime;
-    const past = t < now, nowNow = s <= now && now <= t;
-    const top = ((s.getHours() + s.getMinutes()/60) - DAY_START_H) * PX_PER_HOUR;
     const endH = isNaN(t) ? s.getHours() + 1 : t.getHours() + t.getMinutes()/60;
-    const mins = (Math.min(endH, DAY_END_H) - Math.max(s.getHours() + s.getMinutes()/60, DAY_START_H)) * 60;
+    const top = ((s.getHours() + s.getMinutes()/60) - DAY_START_H) * PX_PER_HOUR;
+    const bottom = (Math.min(endH, DAY_END_H) - DAY_START_H) * PX_PER_HOUR;
+    return {e, s, t, top, bottom, lane: 0, lanes: 1};
+  });
+  for (const a of evsMeta) {
+    const overlaps = evsMeta.filter(b => b !== a && b.top < a.bottom - 2 && a.top < b.bottom - 2);
+    if (!overlaps.length) continue;
+    const group = [a, ...overlaps].sort((x, y) => x.top - y.top || x.e.summary.localeCompare(y.e.summary));
+    const idx = group.indexOf(a);
+    a.lane = idx;
+    a.lanes = group.length;
+  }
+  let evHtml = '';
+  for (const {e, s: sd, t, top, lane, lanes} of evsMeta) {
+    const allDay = typeof e.start === 'string' ? !e.start.includes('T') : !e.start.dateTime;
+    const past = t < now, nowNow = sd <= now && now <= t;
+    const endH = isNaN(t) ? sd.getHours() + 1 : t.getHours() + t.getMinutes()/60;
+    const mins = (Math.min(endH, DAY_END_H) - Math.max(sd.getHours() + sd.getMinutes()/60, DAY_START_H)) * 60;
     const height = Math.max(34, mins * PX_PER_HOUR / 60 - 4);
+    // horizontal lanes: equal-width columns with a small gap between them
+    const lanePct = 100 / lanes;
+    const left = `calc(${(lane * lanePct).toFixed(2)}% + ${lane === 0 ? 8 : 5}px)`;
+    const width = `calc(${lanePct.toFixed(2)}% - ${lanes > 1 ? 13 : 16}px)`;
     // short events (<45min): title+time only; description would clip
-    const showDesc = mins >= 75 && e.description;
+    const showDesc = mins >= 75 && e.description && lanes === 1;
     evHtml += `<div class="ev${past ? ' past' : ''}${nowNow ? ' now' : ''}"
-      style="top:${top}px;height:${height}px">
+      style="top:${top}px;height:${height}px;left:${left};width:${width}">
       <div class="t${mins < 45 ? ' compact' : ''}">${allDay ? '全天 ' : ''}${esc(e.summary || '')}</div>
-      ${!allDay && !isNaN(t) && mins >= 45 ? `<div class="time">${hm(s)}–${hm(t)}</div>` : ''}
+      ${!allDay && !isNaN(t) && mins >= 45 ? `<div class="time">${hm(sd)}–${hm(t)}</div>` : ''}
       ${showDesc ? `<div class="d">${esc(e.description)}</div>` : ''}</div>`;
   }
 
