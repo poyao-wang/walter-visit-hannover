@@ -285,6 +285,7 @@ function renderPlaceList() {
       li.addEventListener('click', () => {
         const m = MARKERS.find(mk => mk.getTitle() === p.name);
         if (m && m._iw) {
+          document.getElementById('map-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
           MAP.panTo(m.getPosition());
           MAP.setZoom(Math.max(MAP.getZoom(), 15));
           closeIW();
