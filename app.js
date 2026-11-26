@@ -194,7 +194,16 @@ async function loadPlaces() {
   renderPlaceList();
 }
 
-const STATUS_COLOR = { anchor: '#4fc3f7', option: '#ffb74d', info: '#81c784' };
+// category colors: bright for map markers, same hue darkened for list row background
+const CAT_COLOR = {
+  lodging:  { dot: '#42a5f5', bg: '#1c2f40' },   // 住宿 blue
+  transport:{ dot: '#26c6a2', bg: '#173831' },   // 交通 teal
+  food:     { dot: '#ff7043', bg: '#3d241c' },   // 吃 orange
+  sight:    { dot: '#ab7df6', bg: '#2a2140' },   // 景點 purple
+  shopping: { dot: '#ffee58', bg: '#3a3a17' },   // 採買 yellow
+};
+// label letter color: dark text on bright dots
+const dotLabelColor = c => (c === '#ffee58' ? '#101418' : '#0d1117');
 
 function addMarkers() {
   const bounds = new google.maps.LatLngBounds();
@@ -206,7 +215,7 @@ function addMarkers() {
       label: { text: p.name[0], color: '#101418', fontSize: '11px', fontWeight: '700' },
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
-        fillColor: STATUS_COLOR[p.status] || '#ffffff',
+        fillColor: (CAT_COLOR[p.category] || {dot:'#ffffff'}).dot,
         fillOpacity: .95,
         strokeColor: '#101418',
         strokeWeight: 1.5,
@@ -262,6 +271,8 @@ function renderPlaceList() {
     ul.appendChild(h);
     for (const p of group) {
       const li = document.createElement('li');
+      const catBg = (CAT_COLOR[p.category] || {bg:'#1a2028'}).bg;
+      li.style.background = catBg;
       li.innerHTML = `
         <input type="checkbox" class="place-check" data-id="${p.id}" checked>
         <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div></div>

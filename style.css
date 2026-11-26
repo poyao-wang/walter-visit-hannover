@@ -164,3 +164,5 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
   background: var(--card2); color: var(--text); font-size: .8rem; font-weight: 600;
 }
 .list-btn:active { background: var(--accent); color: #06232f; }
+
+#place-list li[style] { border-radius: 8px; margin: 3px 0; }
