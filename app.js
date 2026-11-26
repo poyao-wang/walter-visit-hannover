@@ -123,6 +123,7 @@ function initMap() {
     zoom: 13,
     mapTypeControl: false,
     streetViewControl: false,
+    gestureHandling: 'greedy',   // one-finger drag pans on touch; plain wheel zooms on desktop (no modifier)
   });
   loadPlaces();
 }
