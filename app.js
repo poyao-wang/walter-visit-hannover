@@ -298,13 +298,16 @@ function renderPlaceList() {
       li.innerHTML = `
         <input type="checkbox" class="place-check" data-id="${p.id}" checked>
         <div><div class="name"><i class="dot ${p.status}" style="margin-right:6px"></i>${esc(p.name)}</div></div>
-        <div class="go">導航 ↗</div>`;
+        <div class="go">導航 ↗</div>
+        <div class="place-detail" hidden></div>`;
       const cb = li.querySelector('.place-check');
       cb.addEventListener('click', ev => {
         ev.stopPropagation();
         setPlaceVisible(p.id, cb.checked);
       });
-      li.addEventListener('click', () => {
+      // 導航 ↗ = jump to map + open info window (in-page)
+      li.querySelector('.go').addEventListener('click', ev => {
+        ev.stopPropagation();
         const m = MARKERS.find(mk => mk.getTitle() === p.name);
         if (m && m._iw) {
           document.getElementById('map-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -315,6 +318,17 @@ function renderPlaceList() {
           m._iw.open({ anchor: m, map: MAP });
           OPEN_IW = m._iw;
         }
+      });
+      // row click = expand/collapse the Notes detail (accordion: only one open at a time)
+      li.addEventListener('click', () => {
+        const det = li.querySelector('.place-detail');
+        const wasOpen = !det.hidden;
+        // collapse any open detail first
+        document.querySelectorAll('.place-detail:not([hidden])').forEach(d => { d.hidden = true; });
+        if (wasOpen) return;             // clicking the open row just collapses it
+        if (p.notes) det.innerHTML = `<div class="place-notes">${esc(p.notes)}</div>`;
+        else det.innerHTML = `<div class="place-notes" style="color:#5a6470">（沒有詳細資訊）</div>`;
+        det.hidden = false;
       });
       ul.appendChild(li);
     }

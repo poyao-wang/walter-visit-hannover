@@ -187,3 +187,16 @@ body, button, li, a, .ev, .day-tab, .loc-btn { touch-action: manipulation; }
 .nav-btn.active { color: var(--accent); border-color: var(--accent); background: #0e2233; }
 html { scroll-behavior: smooth; }
 section { scroll-margin-top: 150px; }
+
+/* expandable Notes detail under a place row (accordion, one open at a time) */
+.place-detail {
+  flex-basis: 100%;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.25);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #c8d0da;
+  white-space: pre-wrap;
+}
