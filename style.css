@@ -119,6 +119,7 @@ main { max-width: 680px; margin: 0 auto; padding: 0 12px 40px; }
 #place-list { list-style: none; margin-top: 6px; }
 #place-list li {
   display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap;
   padding: 11px 4px; border-bottom: 1px solid var(--border); cursor: pointer;
 }
 #place-list .name { font-weight: 600; font-size: .95rem; }
@@ -190,7 +191,8 @@ section { scroll-margin-top: 150px; }
 
 /* expandable Notes detail under a place row (accordion, one open at a time) */
 .place-detail {
-  flex-basis: 100%;
+  flex: 0 0 100%;
+  min-width: 100%;
   margin-top: 6px;
   padding: 8px 10px;
   border-radius: 8px;
