@@ -31,7 +31,7 @@ body {
   transition: transform .25s ease, opacity .25s ease;
 }
 /* scroll past the header → collapse title row, keep the nav */
-.topbar.mini { padding: 6px 16px 6px; }
+.topbar.mini { padding: 6px calc((100% - 760px) / 2 + 12px); }
 .topbar.mini .topbar-row > div:first-child h1 { font-size: 1rem; }
 .topbar.mini .sub { display: none; }
 .topbar.mini .flight-badge { display: none; }
