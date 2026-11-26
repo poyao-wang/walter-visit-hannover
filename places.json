@@ -9,7 +9,8 @@
       "address": "Am Kläperberg 11, 30167 Hannover",
       "desc": "Boyo 的宿舍。Walter 週六中午行李先放這裡，週日晚上酒會前回來準備。",
       "status": "anchor",
-      "query": "The FIZZ Hannover Am Kläperberg"
+      "query": "The FIZZ Hannover Am Kläperberg",
+      "link": "https://www.google.com/maps/place/THE+FIZZ+Hannover/@52.3910727,9.7235371,17z/data=!3m1!4b1!4m6!3m5!1s0x47b07361983a6d83:0x8ec2aa39889523a9!8m2!3d52.3910727!4d9.7235371!16s/g/11b7v5_6b6"
     },
     {
       "id": "bendorma",
@@ -20,7 +21,8 @@
       "address": "Kniestraße 27, 30167 Hannover",
       "desc": "Walter 的旅館，離 FIZZ 走路約 15 分。Check-in 15:00 起、check-out 11:00。",
       "status": "anchor",
-      "query": "BenDorma Hannover"
+      "query": "BenDorma Hannover",
+      "link": "https://www.google.com/maps/place/BenDorma/@52.3890384,9.7176658,17z/data=!4m9!3m8!1s0x47b073a3252c7083:0x9d5bdf392109caec!5m2!4m1!1i2!8m2!3d52.3890384!4d9.7176658!16s/g/11yhbb0rv4"
     },
     {
       "id": "haj",
@@ -31,7 +33,8 @@
       "address": "Flughafenstraße 1-4, 30669 Hannover",
       "desc": "KLM 抵達（11/28 10:20）與出發（11/30 18:15）。機場站在航廈正下方，S5 每 30 分一班、車程 18 分。",
       "status": "anchor",
-      "query": "Hannover Airport"
+      "query": "Hannover Airport",
+      "link": "https://www.google.com/maps/place/Flughafen+Hannover-Langenhagen+GmbH/@52.4627115,9.6842376,17z/data=!3m1!4b1!4m6!3m5!1s0x47b07217509056b1:0xe4434b844c73d0e5!8m2!3d52.4627115!4d9.6842376!16zL20vMDJtcjZw"
     },
     {
       "id": "mensa-contine",
@@ -42,7 +45,8 @@
       "address": "Callinstraße 23 / Conti-Campus, 30167 Hannover",
       "desc": "全 Studentenwerk 唯一週六營業的 Mensa（12:00–14:00，出菜 13:30 截止）。德國大學飲食文化初體驗。",
       "status": "anchor",
-      "query": "Mensa Contine Hannover"
+      "query": "Mensa Contine Hannover",
+      "link": "https://www.google.com/maps/place/Studentenwerk+Hannover+-+Mensa+Contine/@52.3793046,9.7240303,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0749876192e9b:0x362c571fe770362e!8m2!3d52.3793046!4d9.7240303!16s/g/11c5rr1m6n"
     },
     {
       "id": "conti-campus",
@@ -53,7 +57,8 @@
       "address": "Königsworther Platz 1, 30167 Hannover",
       "desc": "LUH 校園巡禮起點（備選行程）。",
       "status": "option",
-      "query": "Conti-Campus Leibniz Universität Hannover"
+      "query": "Conti-Campus Leibniz Universität Hannover",
+      "link": "https://www.google.com/maps/search/Conti-Campus+Leibniz+Universit%C3%A4t+Hannover/@52.3799582,9.7223749,17z/data=!3m1!4b1"
     },
     {
       "id": "hauptgebaeude",
@@ -63,7 +68,8 @@
       "category": "sight",
       "address": "Appelstraße / Welfengarten 1, 30167 Hannover",
       "desc": "漢諾威萊布尼茲大學主樓，前身王宮城堡。Welfengarten 花園免費散步。",
-      "status": "option"
+      "status": "option",
+      "link": "https://www.google.com/maps/place/Leibniz+Universität+Hauptgebäude/@52.382593,9.7155917,18z/data=!3m1!5s0x47b0749be465b275:0x57f5a521fe718de2!4m10!1m2!2m1!1sWelfenschloss+Hannover!3m6!1s0x47b07546b524870d:0x8bd9e2bb9122e2cc!8m2!3d52.382593!4d9.7178448!16s%2Fg%2F11c5rr1m6n"
     },
     {
       "id": "altstadt-weihnachtsmarkt",
@@ -73,7 +79,8 @@
       "category": "sight",
       "address": "Marktplatz, 30159 Hannover",
       "desc": "漢諾威聖誕市集主場：Marktkirche 旁的歷史市集。Bratwurst、Glühwein、聖誕杯收集起點。",
-      "status": "anchor"
+      "status": "anchor",
+      "link": "https://www.google.com/maps/place/Weihnachtsmarkt+an+der+Marktkirche+Hannover/@52.3715132,9.7354743,17z/data=!3m1!4b1!4m6!3m5!1s0x47b075001d2c9de5:0xa5487a51d0790c2b!8m2!3d52.3715132!4d9.7354743!16s/g/11y90l33hm"
     },
     {
       "id": "kroepcke",
@@ -84,7 +91,8 @@
       "address": "Kröpcke, 30159 Hannover",
       "desc": "市中心地標＋巨型聖誕金字塔，市集動線中繼站。",
       "status": "anchor",
-      "query": "Kröpcke Hannover"
+      "query": "Kröpcke Hannover",
+      "link": "https://www.google.com/maps/place/Kr%C3%B6pcke-Uhr/@52.3744251,9.7343679,17z/data=!4m10!1m2!2m1!1sKr%C3%B6pcke+Hannover!3m6!1s0x47b07572ea8fb215:0x6440a70fe233c1b7!8m2!3d52.3744251!4d9.738874!16s/g/11b7tfsyps"
     },
     {
       "id": "hbf-weihnachtsdorf",
@@ -94,7 +102,8 @@
       "category": "sight",
       "address": "Ernst-August-Platz 1, 30159 Hannover",
       "desc": "漢諾威車站前木屋市集（11:00–21:00）。市集動線終點，接超市採買。",
-      "status": "anchor"
+      "status": "anchor",
+      "link": "https://www.google.com/maps/place/Roncalli's+Weihnachtsdorf+Hannover/@52.3762224,9.7407233,17z/data=!3m1!4b1!4m6!3m5!1s0x47b075c72554e48d:0x164c48fab591bacd!8m2!3d52.3762224!4d9.7407233!16s/g/11wr3r5r44"
     },
     {
       "id": "lidl-hbf",
@@ -105,7 +114,8 @@
       "address": "Niki-de-Saint-Phalle-Promenade 86, 30161 Hannover",
       "desc": "車站內超市：週六開到 22:00+，週日 09:00–22:00（車站區例外營業）——週日補酒／下酒菜的最後機會。",
       "status": "anchor",
-      "query": "Lidl Niki-de-Saint-Phalle-Promenade Hannover"
+      "query": "Lidl Niki-de-Saint-Phalle-Promenade Hannover",
+      "link": "https://www.google.com/maps/place/Lidl/@52.37743,9.74221,17z/data=!3m1!4b1!4m6!3m5!1s0x47b074ae2d4e364b:0x894c0be85b8c9c4e!8m2!3d52.37743!4d9.74221!16s/g/1vm_wybg"
     },
     {
       "id": "neues-rathaus",
@@ -115,7 +125,8 @@
       "category": "sight",
       "address": "Trammplatz 2, 30159 Hannover",
       "desc": "斜面電梯上圓頂看全城，日落前（~16:00）上最值。備選行程。",
-      "status": "option"
+      "status": "option",
+      "link": "https://www.google.com/maps/place/Neues+Rathaus+Hannover/@52.3672679,9.7374231,17z/data=!3m1!4b1!4m6!3m5!1s0x47b074b7b136ef0d:0x240f83ce77764793!8m2!3d52.3672679!4d9.7374231!16s/m/02r55xq"
     },
     {
       "id": "roter-faden",
@@ -126,7 +137,8 @@
       "address": "Ernst-August-Platz（旅遊局前）, 30159 Hannover",
       "desc": "4.2 km 地上紅線串 36 個老城景點。跟著走就對。備選行程。",
       "status": "option",
-      "query": "Roter Faden Hannover"
+      "query": "Roter Faden Hannover",
+      "link": "https://www.google.com/maps/place/Roter+Faden/@52.3713481,9.7390899,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0753ce4193b6f:0x57c92542e185a10!8m2!3d52.3713481!4d9.7390899!16s/g/11k2ynf3h_"
     },
     {
       "id": "herrenhausen",
@@ -137,7 +149,8 @@
       "address": "Herrenhäuser Straße 4, 30419 Hannover",
       "desc": "巴洛克式大花園（冬天免費區域夠看）。備選行程，U-Bahn 4/5 到 Herrenhäuser Gärten 站。",
       "status": "option",
-      "query": "Herrenhäuser Gärten Hannover"
+      "query": "Herrenhäuser Gärten Hannover",
+      "link": "https://www.google.com/maps/place/Herrenh%C3%A4user+G%C3%A4rten/@52.3881111,9.6966567,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0747fcbb481a7:0x8aba2eb652d94572!8m2!3d52.3881111!4d9.6966567!16zL20vMDk3Nnh2"
     },
     {
       "id": "zoolights",
@@ -148,7 +161,8 @@
       "address": "Adenauerallee 3, 30175 Hannover",
       "desc": "夜間燈光秀（17.11–2.2，17:00–22:00），聖誕花園改到動物園辦。下雨／想看燈光的機動加碼。",
       "status": "option",
-      "query": "Erlebnis-Zoo Hannover"
+      "query": "Erlebnis-Zoo Hannover",
+      "link": "https://www.google.com/maps/place/Erlebnis-Zoo+Hannover/@52.3818306,9.7686762,17z/data=!3m1!4b1!4m6!3m5!1s0x47b00b582d3228eb:0x19da3db4068768b2!8m2!3d52.3818306!4d9.7686762!16zL20vMDF3N2xn"
     },
     {
       "id": "sea-life",
@@ -159,7 +173,8 @@
       "address": "Adenauerallee 3, 30175 Hannover",
       "desc": "Zoo 旁的室內水族館——雨天備案。",
       "status": "option",
-      "query": "SEA LIFE Hannover"
+      "query": "SEA LIFE Hannover",
+      "link": "https://www.google.com/maps/place/SEA+LIFE+Hannover/@52.3926315,9.6988714,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0737f8bf3a5ef:0x4ebbf233d4894207!8m2!3d52.3926315!4d9.6988714!16s/g/1tfpyx1n"
     },
     {
       "id": "bing-venue",
@@ -169,7 +184,8 @@
       "category": "food",
       "address": "Boyo 宿舍或附近（未定）",
       "desc": "週日 20:00–23:00，Bing＋Walter 小酒會。地點未定，座標暫放 FIZZ。",
-      "status": "anchor"
+      "status": "anchor",
+      "link": "https://www.google.com/maps/search/Hannover+Innenstadt/@52.3744,9.7388,14z"
     },
     {
       "id": "gla",
@@ -180,7 +196,8 @@
       "address": "Paisley PA3 2SJ, Scotland, UK",
       "desc": "Walter 的出發機場（KLM GLA→AMS）。",
       "status": "info",
-      "query": "Glasgow Airport"
+      "query": "Glasgow Airport",
+      "link": "https://www.google.com/maps/place/Flughafen+Glasgow/@55.8700415,-4.4345433,17z/data=!3m1!4b1!4m6!3m5!1s0x48884eb90111e0dd:0x24a888b519aa330b!8m2!3d55.8700415!4d-4.4345433!16zL20vMDFwbmxt"
     },
     {
       "id": "ams",
@@ -191,7 +208,8 @@
       "address": "Evert v/d Beekstraat 202, 1118 CP Schiphol",
       "desc": "來回都在這轉機。",
       "status": "info",
-      "query": "Amsterdam Airport Schiphol"
+      "query": "Amsterdam Airport Schiphol",
+      "link": "https://www.google.com/maps/place/Flughafen+Amsterdam+Schiphol/@52.3083688,4.7637672,15z/data=!3m1!4b1!4m6!3m5!1s0x47c5e134e0fd162d:0xc7d51583f1cef188!8m2!3d52.3161796!4d4.7450375!16zL20vMDczajI"
     }
   ]
 }

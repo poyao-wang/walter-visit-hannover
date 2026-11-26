@@ -1,0 +1,20 @@
+{
+ "fizz": "https://www.google.com/maps/place/THE+FIZZ+Hannover/@52.3910727,9.7235371,17z/data=!3m1!4b1!4m6!3m5!1s0x47b07361983a6d83:0x8ec2aa39889523a9!8m2!3d52.3910727!4d9.7235371!16s/g/11b7v5_6b6",
+ "bendorma": "https://www.google.com/maps/place/BenDorma/@52.3890384,9.7176658,17z/data=!4m9!3m8!1s0x47b073a3252c7083:0x9d5bdf392109caec!5m2!4m1!1i2!8m2!3d52.3890384!4d9.7176658!16s/g/11yhbb0rv4",
+ "haj": "https://www.google.com/maps/place/Flughafen+Hannover-Langenhagen+GmbH/@52.4627115,9.6842376,17z/data=!3m1!4b1!4m6!3m5!1s0x47b07217509056b1:0xe4434b844c73d0e5!8m2!3d52.4627115!4d9.6842376!16zL20vMDJtcjZw",
+ "mensa-contine": "https://www.google.com/maps/place/Studentenwerk+Hannover+-+Mensa+Contine/@52.3793046,9.7240303,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0749876192e9b:0x362c571fe770362e!8m2!3d52.3793046!4d9.7240303!16s/g/11c5rr1m6n",
+ "hauptgebaeude": "https://www.google.com/maps/place/Leibniz+Universität+Hauptgebäude/@52.382593,9.7155917,18z/data=!3m1!5s0x47b0749be465b275:0x57f5a521fe718de2!4m10!1m2!2m1!1sWelfenschloss+Hannover!3m6!1s0x47b07546b524870d:0x8bd9e2bb9122e2cc!8m2!3d52.382593!4d9.7178448!16s%2Fg%2F11c5rr1m6n",
+ "altstadt-weihnachtsmarkt": "https://www.google.com/maps/place/Weihnachtsmarkt+an+der+Marktkirche+Hannover/@52.3715132,9.7354743,17z/data=!3m1!4b1!4m6!3m5!1s0x47b075001d2c9de5:0xa5487a51d0790c2b!8m2!3d52.3715132!4d9.7354743!16s/g/11y90l33hm",
+ "kroepcke": "https://www.google.com/maps/place/Kr%C3%B6pcke-Uhr/@52.3744251,9.7343679,17z/data=!4m10!1m2!2m1!1sKr%C3%B6pcke+Hannover!3m6!1s0x47b07572ea8fb215:0x6440a70fe233c1b7!8m2!3d52.3744251!4d9.738874!16s/g/11b7tfsyps",
+ "hbf-weihnachtsdorf": "https://www.google.com/maps/place/Roncalli's+Weihnachtsdorf+Hannover/@52.3762224,9.7407233,17z/data=!3m1!4b1!4m6!3m5!1s0x47b075c72554e48d:0x164c48fab591bacd!8m2!3d52.3762224!4d9.7407233!16s/g/11wr3r5r44",
+ "lidl-hbf": "https://www.google.com/maps/place/Lidl/@52.37743,9.74221,17z/data=!3m1!4b1!4m6!3m5!1s0x47b074ae2d4e364b:0x894c0be85b8c9c4e!8m2!3d52.37743!4d9.74221!16s/g/1vm_wybg",
+ "neues-rathaus": "https://www.google.com/maps/place/Neues+Rathaus+Hannover/@52.3672679,9.7374231,17z/data=!3m1!4b1!4m6!3m5!1s0x47b074b7b136ef0d:0x240f83ce77764793!8m2!3d52.3672679!4d9.7374231!16s/m/02r55xq",
+ "herrenhausen": "https://www.google.com/maps/place/Herrenh%C3%A4user+G%C3%A4rten/@52.3881111,9.6966567,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0747fcbb481a7:0x8aba2eb652d94572!8m2!3d52.3881111!4d9.6966567!16zL20vMDk3Nnh2",
+ "zoolights": "https://www.google.com/maps/place/Erlebnis-Zoo+Hannover/@52.3818306,9.7686762,17z/data=!3m1!4b1!4m6!3m5!1s0x47b00b582d3228eb:0x19da3db4068768b2!8m2!3d52.3818306!4d9.7686762!16zL20vMDF3N2xn",
+ "sea-life": "https://www.google.com/maps/place/SEA+LIFE+Hannover/@52.3926315,9.6988714,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0737f8bf3a5ef:0x4ebbf233d4894207!8m2!3d52.3926315!4d9.6988714!16s/g/1tfpyx1n",
+ "roter-faden": "https://www.google.com/maps/place/Roter+Faden/@52.3713481,9.7390899,17z/data=!3m1!4b1!4m6!3m5!1s0x47b0753ce4193b6f:0x57c92542e185a10!8m2!3d52.3713481!4d9.7390899!16s/g/11k2ynf3h_",
+ "gla": "https://www.google.com/maps/place/Flughafen+Glasgow/@55.8700415,-4.4345433,17z/data=!3m1!4b1!4m6!3m5!1s0x48884eb90111e0dd:0x24a888b519aa330b!8m2!3d55.8700415!4d-4.4345433!16zL20vMDFwbmxt",
+ "ams": "https://www.google.com/maps/place/Flughafen+Amsterdam+Schiphol/@52.3083688,4.7637672,15z/data=!3m1!4b1!4m6!3m5!1s0x47c5e134e0fd162d:0xc7d51583f1cef188!8m2!3d52.3161796!4d4.7450375!16zL20vMDczajI",
+ "conti-campus": "https://www.google.com/maps/search/Conti-Campus+Leibniz+Universit%C3%A4t+Hannover/@52.3799582,9.7223749,17z/data=!3m1!4b1",
+ "bing-venue": "https://www.google.com/maps/search/Hannover+Innenstadt/@52.3744,9.7388,14z"
+}

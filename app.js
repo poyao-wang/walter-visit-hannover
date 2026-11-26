@@ -223,10 +223,9 @@ function addMarkers() {
       },
     });
     const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
-    // /maps/place/NAME/@lat,lng,17z pins the exact POI card at that location —
-    // precise even for ambiguous names (name shown as-is + map centered on our coords)
-    const nm = encodeURIComponent(p.query || p.name.split('（')[0].trim());
-    const viewUrl = `https://www.google.com/maps/place/${nm}/@${p.lat},${p.lng},17z`;
+    // p.link = real Google Maps place URL (with feature id) — opens the full POI card, no ambiguity
+    const viewUrl = p.link ||
+      `https://www.google.com/maps/place/${encodeURIComponent(p.query || p.name.split('（')[0].trim())}/@${p.lat},${p.lng},17z`;
     const iw = new google.maps.InfoWindow({
       content: `<div class="iw"><div class="iw-name">${esc(p.name)}</div>` +
         `<div class="iw-desc">${esc(p.desc)}</div>` +
