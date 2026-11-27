@@ -253,4 +253,4 @@ section { scroll-margin-top: 150px; }
 }
 #notes-area { white-space: pre-wrap; word-break: break-word; -webkit-user-select: text; cursor: text; }
 
-.notes-hint { font-size: 11px; font-weight: 400; color: #5a6470; margin-left: 8px; letter-spacing: 0; }
+.notes-hint { font-size: 15px; font-weight: 400; color: #5a6470; margin-left: 8px; letter-spacing: 0; }
