@@ -432,7 +432,7 @@ function updateNav() {
   const last = NAV_BTNS[NAV_BTNS.length - 1];
   const lastSec = document.getElementById(last.dataset.target);
   // last section: highlight as soon as its heading appears (top enters viewport)
-  if (lastSec && lastSec.getBoundingClientRect().top <= window.innerHeight * 0.6) active = last.dataset.target;
+  if (lastSec && lastSec.getBoundingClientRect().top <= window.innerHeight * 0.8) active = last.dataset.target;
   else for (const b of NAV_BTNS) {
     const sec = document.getElementById(b.dataset.target);
     if (sec && sec.offsetTop <= y) active = b.dataset.target;
