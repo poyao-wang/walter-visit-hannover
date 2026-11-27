@@ -239,10 +239,16 @@ section { scroll-margin-top: 150px; }
 }
 .notes-btn:hover { color: #fff; border-color: #3a4552; }
 #notes-area {
-  width: 100%; min-height: 160px; resize: vertical;
+  width: 100%; min-height: 160px; overflow-y: auto;
   background: var(--card2, #10151b); color: #d6dde5;
   border: 1px solid var(--border, #2a323c); border-radius: 10px;
   padding: 12px; font-size: 14px; line-height: 1.6; font-family: inherit;
   box-sizing: border-box;
 }
 #notes-area:focus { outline: none; border-color: #3d6aa2; }
+#notes-area:empty::before {
+  content: attr(data-placeholder);
+  color: #5a6470; pointer-events: none;
+  white-space: pre-line;
+}
+#notes-area { white-space: pre-wrap; word-break: break-word; -webkit-user-select: text; cursor: text; }

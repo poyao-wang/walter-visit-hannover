@@ -463,14 +463,19 @@ updateTopbar();
   if (!area) return;
   let saved = '';
   try { saved = localStorage.getItem(KEY) || ''; } catch (e) {}
-  area.value = saved;
+  area.innerText = saved;
   let timer = null;
+  area.addEventListener('paste', ev => {
+    ev.preventDefault();
+    const text = (ev.clipboardData || window.clipboardData).getData('text/plain') || '';
+    document.execCommand('insertText', false, text);
+  });
   area.addEventListener('input', () => {
     clearTimeout(timer);
     status.textContent = '…';
     timer = setTimeout(() => {
       try {
-        localStorage.setItem(KEY, area.value);
+        localStorage.setItem(KEY, area.innerText);
         status.textContent = '已儲存 ' + new Date().toLocaleTimeString('zh-TW', {hour: '2-digit', minute: '2-digit'});
       } catch (e) {
         status.textContent = '⚠ 無法儲存（隱私瀏覽模式？）';
@@ -479,10 +484,13 @@ updateTopbar();
   });
   copyBtn.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText(area.value);
+      await navigator.clipboard.writeText(area.innerText);
       status.textContent = '已複製到剪貼簿';
     } catch (e) {
-      area.select(); document.execCommand('copy');
+      const range = document.createRange();
+      range.selectNodeContents(area);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      document.execCommand('copy'); sel.removeAllRanges();
       status.textContent = '已複製';
     }
     setTimeout(() => { status.textContent = ''; }, 2000);
