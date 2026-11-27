@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Walter 來訪 · 漢諾威週末 2026</title>
-<link rel="stylesheet" href="style.css?v=1.4.8">
+<link rel="stylesheet" href="style.css?v=1.4.9">
 <link rel="icon" href="icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -24,6 +24,7 @@
   <nav class="global-nav">
     <a href="#timeline-section" class="nav-btn active" data-target="timeline-section">📅 日曆</a>
     <a href="#map-section" class="nav-btn" data-target="map-section">🗺️ 地圖</a>
+    <a href="#notes-section" class="nav-btn" data-target="notes-section">📝 筆記</a>
   </nav>
 </header>
 
@@ -63,9 +64,18 @@
     <ul id="place-list"></ul>
   </section>
 
+    <section id="notes-section" class="notes-section">
+    <h2>📝 筆記</h2>
+    <div class="notes-tools">
+      <span id="notes-status" class="notes-status"></span>
+      <button id="notes-copy" class="notes-btn">複製全部</button>
+    </div>
+    <textarea id="notes-area" placeholder="自由記錄：採買清單、約定事項、想到什麼寫什麼…&#10;（只存在這台手機的瀏覽器裡，不同裝置不同步）"></textarea>
+  </section>
   <footer>
     <p>Boyo &amp; Walter · Hannover · 資料來源：walter-visit-2026-11-28 公開日曆</p>
-    <p class="version">v1.4.8</p>
+    <p class="version">v1.4.9</p>
+  
   </footer>
 </main>
 
@@ -78,7 +88,7 @@
   </div>
 </div>
 
-<script src="app.js?v=1.4.8"></script>
+<script src="app.js?v=1.4.9"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWPvsA_SU08rkUhOIVdafZwzAwHbM9aE&loading=async&callback=initMap&language=zh-TW&region=DE">
 </script>

@@ -449,3 +449,44 @@ function updateTopbar() {
 }
 window.addEventListener('scroll', updateTopbar, { passive: true });
 updateTopbar();
+
+/* ================= Notes (localStorage only) ================= */
+(function () {
+  const KEY = 'wvh_notes_v1';
+  const area = document.getElementById('notes-area');
+  const status = document.getElementById('notes-status');
+  const copyBtn = document.getElementById('notes-copy');
+  if (!area) return;
+  let saved = '';
+  try { saved = localStorage.getItem(KEY) || ''; } catch (e) {}
+  area.value = saved;
+  let timer = null;
+  area.addEventListener('input', () => {
+    clearTimeout(timer);
+    status.textContent = '…';
+    timer = setTimeout(() => {
+      try {
+        localStorage.setItem(KEY, area.value);
+        status.textContent = '已儲存 ' + new Date().toLocaleTimeString('zh-TW', {hour: '2-digit', minute: '2-digit'});
+      } catch (e) {
+        status.textContent = '⚠ 無法儲存（隱私瀏覽模式？）';
+      }
+    }, 800);
+  });
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(area.value);
+      status.textContent = '已複製到剪貼簿';
+    } catch (e) {
+      area.select(); document.execCommand('copy');
+      status.textContent = '已複製';
+    }
+    setTimeout(() => { status.textContent = ''; }, 2000);
+  });
+  // smooth-scroll for the nav button (match other nav-btn behavior)
+  const navBtn = document.querySelector('[data-target="notes-section"]');
+  if (navBtn) navBtn.addEventListener('click', ev => {
+    ev.preventDefault();
+    document.getElementById('notes-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();

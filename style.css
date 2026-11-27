@@ -228,3 +228,21 @@ section { scroll-margin-top: 150px; }
 .ev-modal-time  { color: #6fa8ff; font-size: 14px; margin-bottom: 12px; }
 .ev-modal-desc  { font-size: 14px; line-height: 1.6; white-space: pre-wrap; color: #c8d0da; }
 .ev-modal-loc   { margin-top: 12px; font-size: 13px; color: #8a94a2; }
+
+/* notes section (localStorage, per-device) */
+.notes-section { margin: 26px 0 0; }
+.notes-tools { display: flex; align-items: center; justify-content: space-between; margin: 8px 0; }
+.notes-status { font-size: 12px; color: #5a6470; min-height: 1em; }
+.notes-btn {
+  background: none; border: 1px solid var(--border, #2a323c); color: #8a94a2;
+  border-radius: 8px; padding: 4px 12px; font-size: 13px; cursor: pointer;
+}
+.notes-btn:hover { color: #fff; border-color: #3a4552; }
+#notes-area {
+  width: 100%; min-height: 160px; resize: vertical;
+  background: var(--card2, #10151b); color: #d6dde5;
+  border: 1px solid var(--border, #2a323c); border-radius: 10px;
+  padding: 12px; font-size: 14px; line-height: 1.6; font-family: inherit;
+  box-sizing: border-box;
+}
+#notes-area:focus { outline: none; border-color: #3d6aa2; }
